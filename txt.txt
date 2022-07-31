@@ -1,0 +1,11 @@
+
+Сервис для собственных нужд
+
+1. По максимуму автоматизируем
+
+Деплой
+https://blog.maxgraph.ru/deploj-sajta-s-github-na-khosting-cherez-ssh/
+https://www.youtube.com/watch?v=_8sN0AaEVyE&t=100s
+
+ci/cd
+https://github.com/LexusAlex/ci-cd-test
