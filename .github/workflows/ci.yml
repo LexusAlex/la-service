@@ -22,5 +22,4 @@ jobs:
               env:
                   HOST: ${{ secrets.PRODUCTION_HOST }}
                   PORT: ${{ secrets.PRODUCTION_PORT }}
-                  USER: ${{ secrets.PRODUCTION_USER }}
               if: ${{ github.ref == 'refs/heads/main' }}
