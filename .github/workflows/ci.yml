@@ -16,7 +16,7 @@ jobs:
               with:
                   host: ${{ secrets.PRODUCTION_HOST }}
                   username: ${{ secrets.PRODUCTION_USER }}
-                  key: ${{ secrets.PRODUCTION_KEY }}
+                  password: ${{ secrets.PRODUCTION_PASSWORD }}
                   port: ${{ secrets.PRODUCTION_PORT }}
                   script: df -h
               if: ${{ github.ref == 'refs/heads/main' }}
