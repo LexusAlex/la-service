@@ -1,0 +1,41 @@
+---
+- name: ufw install and configuration
+  block:
+    - name: install ufw
+      apt:
+        name: ufw
+        update_cache: yes
+      debugger: on_failed
+      tags: install-ufw
+    - name: default incoming policy
+      ufw:
+        policy: deny
+        direction: incoming
+      debugger: on_failed
+      tags: incoming-policy-ufw
+    - name: default outgoing policy
+      ufw:
+        policy: allow
+        direction: outgoing
+      debugger: on_failed
+      tags: outgoing-policy-ufw
+    - name: allow port 60022
+      ufw:
+        rule: allow
+        port: 60022
+        proto: tcp
+        state: reloaded
+      debugger: on_failed
+      tags: allow-60022-port-ufw
+    - name: allow openssh
+      ufw:
+        rule: allow
+        name: OpenSSH
+      debugger: on_failed
+      tags: allow-openssh-port-ufw
+    - name: enable ufw
+      ufw:
+        state: enabled
+      debugger: on_failed
+      tags: enable-ufw
+  tags: ufw

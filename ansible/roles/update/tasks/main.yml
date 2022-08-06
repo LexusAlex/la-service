@@ -1,0 +1,22 @@
+---
+- name: Update and upgrade packages
+  block:
+    - name: Update packages
+      apt:
+        update_cache: yes
+      debugger: on_failed
+      tags:
+        - update-packages
+    - name: Upgrade packages
+      apt:
+        upgrade: dist
+      debugger: on_failed
+      tags:
+        - upgrade-packages
+    - name : Remove unless packages
+      apt:
+        autoclean: yes
+      debugger: on_failed
+      tags:
+        - autoclean
+  tags: update

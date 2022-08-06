@@ -9,3 +9,5 @@ https://www.youtube.com/watch?v=_8sN0AaEVyE&t=100s
 
 ci/cd
 https://github.com/LexusAlex/ci-cd-test
+
+2. Минимум хлама в проекте
