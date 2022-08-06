@@ -18,5 +18,6 @@ jobs:
                   username: ${{ secrets.REMOTE_USER }}
                   key: ${{ secrets.SERVER_SSH_KEY }}
                   passphrase: ''
-                  #script: make deploy
-              if: ${{ github.ref == 'refs/heads/main' }}
+                  script: |
+                    whoami
+                    ls -al
