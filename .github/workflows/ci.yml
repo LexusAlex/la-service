@@ -18,4 +18,9 @@ jobs:
                   known_hosts: ${{ secrets.PRODUCTION_HOST }}
               if: ${{ github.ref == 'refs/heads/main' }}
             - name:
-              run: make ping
+              run: make deploy
+              env:
+                  HOST: ${{ secrets.PRODUCTION_HOST }}
+                  PORT: ${{ secrets.PRODUCTION_PORT }}
+                  USER: ${{ secrets.PRODUCTION_USER }}
+              if: ${{ github.ref == 'refs/heads/main' }}
