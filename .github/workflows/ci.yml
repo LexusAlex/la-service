@@ -11,17 +11,11 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             # Делаем какую-то подготовительную работу типа тесты и линтеры
-            - name:
-              uses: shimataro/ssh-key-action@v2
+            - name: Push to server
+              uses: appleboy/ssh-action@master
               with:
+                  host: ${{ secrets.PRODUCTION_HOST }}
+                  username: ${{ secrets.PRODUCTION_USER }}
                   key: ${{ secrets.PRODUCTION_KEY }}
-                  known_hosts: ${{ secrets.PRODUCTION_HOST }}
-              if: ${{ github.ref == 'refs/heads/main' }}
-            - name: add ssh key
-              run: ssh-keyscan -H ${{ secrets.PRODUCTION_HOST }} >> ~/.ssh/known_hosts
-            - name:
-              run: make deploy
-              env:
-                  HOST: ${{ secrets.PRODUCTION_HOST }}
-                  PORT: ${{ secrets.PRODUCTION_PORT }}
+                  port: ${{ secrets.PRODUCTION_PORT }}
               if: ${{ github.ref == 'refs/heads/main' }}
