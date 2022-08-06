@@ -1,22 +1,22 @@
 name: la-service pipeline
-
 on:
     push:
         branches:
             - main
-
 jobs:
     build:
         runs-on: ubuntu-20.04
         steps:
             - uses: actions/checkout@v2
             # Делаем какую-то подготовительную работу типа тесты и линтеры
-            #- name: Push to server
-            #  uses: appleboy/ssh-action@master
-            #  with:
-            #      host: ${{ secrets.PRODUCTION_HOST }}
-            #      username: ${{ secrets.PRODUCTION_USER }}
-            #      password: ${{ secrets.PRODUCTION_PASSWORD }}
-            #      port: ${{ secrets.PRODUCTION_PORT }}
-            #      script: df -h
-            #  if: ${{ github.ref == 'refs/heads/main' }}
+
+            - name: deploy on server
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.REMOTE_HOST }}
+                  port: ${{ secrets.REMOTE_PORT }}
+                  username: ${{ secrets.REMOTE_USER }}
+                  key: ${{ secrets.SERVER_SSH_KEY }}
+                  passphrase: ''
+                  script: ls -la
+              if: ${{ github.ref == 'refs/heads/main' }}
