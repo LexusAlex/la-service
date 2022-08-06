@@ -17,6 +17,8 @@ jobs:
                   key: ${{ secrets.PRODUCTION_KEY }}
                   known_hosts: ${{ secrets.PRODUCTION_HOST }}
               if: ${{ github.ref == 'refs/heads/main' }}
+            - name: add ssh key
+              run: ssh-keyscan -H ${{ secrets.PRODUCTION_HOST }} >> ~/.ssh/known_hosts
             - name:
               run: make deploy
               env:
