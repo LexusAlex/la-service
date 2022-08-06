@@ -11,12 +11,12 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             # Делаем какую-то подготовительную работу типа тесты и линтеры
-            - name: Push to server
-              uses: appleboy/ssh-action@master
-              with:
-                  host: ${{ secrets.PRODUCTION_HOST }}
-                  username: ${{ secrets.PRODUCTION_USER }}
-                  password: ${{ secrets.PRODUCTION_PASSWORD }}
-                  port: ${{ secrets.PRODUCTION_PORT }}
-                  script: df -h
-              if: ${{ github.ref == 'refs/heads/main' }}
+            #- name: Push to server
+            #  uses: appleboy/ssh-action@master
+            #  with:
+            #      host: ${{ secrets.PRODUCTION_HOST }}
+            #      username: ${{ secrets.PRODUCTION_USER }}
+            #      password: ${{ secrets.PRODUCTION_PASSWORD }}
+            #      port: ${{ secrets.PRODUCTION_PORT }}
+            #      script: df -h
+            #  if: ${{ github.ref == 'refs/heads/main' }}
