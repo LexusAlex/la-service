@@ -18,5 +18,6 @@ jobs:
                   username: ${{ secrets.REMOTE_USER }}
                   key: ${{ secrets.SERVER_SSH_KEY }}
                   passphrase: ''
+                  script_stop: true
                   script: |
-                    whoami
+                    php -v
