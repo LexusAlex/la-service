@@ -20,5 +20,5 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         script_stop: true
         script: |
-          cd /tmp
+          cd /root
           mkdir asdfsdf
