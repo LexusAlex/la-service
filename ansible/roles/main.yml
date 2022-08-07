@@ -8,3 +8,5 @@
       tags: ufw
     - role: fail2ban
       tags: fail2ban
+    - role: user
+      tags: user

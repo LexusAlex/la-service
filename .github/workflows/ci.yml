@@ -20,4 +20,3 @@ jobs:
                   passphrase: ''
                   script: |
                     whoami
-                    ls -al
