@@ -7,7 +7,13 @@
 https://blog.maxgraph.ru/deploj-sajta-s-github-na-khosting-cherez-ssh/
 https://www.youtube.com/watch?v=_8sN0AaEVyE&t=100s
 
+github actions
+
+На самом github его можно перезапустить прямо в интерфейсе
+https://antonshell.me/post/github-actions-symfony
+
 ci/cd
 https://github.com/LexusAlex/ci-cd-test
 
 2. Минимум хлама в проекте
+3. Не доверяем не одному узлу системы
