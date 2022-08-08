@@ -17,3 +17,10 @@ https://github.com/LexusAlex/ci-cd-test
 
 2. Минимум хлама в проекте
 3. Не доверяем не одному узлу системы
+
+
+## Структура проекта
+
+1. api - бэкенд на php
+2. frontend -  фреймворке React или другом, но сначала изучить досконально react
+https://deworker.pro/edu/series/what-is-react/javascript-render
