@@ -7,4 +7,4 @@ ping:
 la-service-all:
 	ansible-playbook -i $(UBUNTU_INVENTORY_FILE) $(UBUNTU_ROLES) -l $(UBUNTU_HOST) -u $(UBUNTU_USER)
 deploy:
-	ssh -o StrictHostKeyChecking=no root@${HOST} -p ${PORT} 'df -h'
+	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} '!!!command!!!'
