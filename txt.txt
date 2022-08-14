@@ -17,6 +17,11 @@ https://github.com/LexusAlex/ci-cd-test
 
 2. Минимум хлама в проекте
 3. Не доверяем не одному узлу системы
+4. Всегда все проверяем
+
+Пример github action для прогона тестов
+
+https://github.com/slimphp/Slim/blob/4.x/.github/workflows/tests.yml
 
 
 ## Структура проекта
@@ -24,3 +29,6 @@ https://github.com/LexusAlex/ci-cd-test
 1. backend- бэкенд на php
 2. frontend -  фреймворке React или другом, но сначала изучить досконально react
 https://deworker.pro/edu/series/what-is-react/javascript-render
+
+Для dev разработки docker
+docker compose run --rm backend-php-cli composer

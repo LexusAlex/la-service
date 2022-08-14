@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  backend-nginx:
+    build:
+      context: backend/docker
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "8008:8008"
+    volumes:
+      - ./backend:/la-service
+    depends_on:
+      - backend-php-fpm
+  backend-php-fpm:
+    build:
+      context: backend/docker
+      dockerfile: php-fpm/Dockerfile
+    environment:
+      APPLICATION_ENVIRONMENT: development
+      APPLICATION_DEBUG: 1
+    volumes:
+      - ./backend:/la-service
+  backend-php-cli:
+    build:
+      context: backend/docker
+      dockerfile: php-cli/Dockerfile
+    environment:
+     APPLICATION_ENVIRONMENT: development
+     APPLICATION_DEBUG: 1
+    volumes:
+      - ./backend:/la-service
