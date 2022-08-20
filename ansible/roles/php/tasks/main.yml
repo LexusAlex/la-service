@@ -1,0 +1,32 @@
+---
+- name: install php
+  block:
+    - name: install soft
+      apt:
+        name: software-properties-common
+        state: latest
+        update_cache: yes
+      debugger: on_failed
+      tags: php-install-software
+    - name: added repository
+      apt_repository:
+        repo: 'ppa:ondrej/php'
+        state: present
+        update_cache: yes
+      debugger: on_failed
+      tags: php-add-repository
+    - name: install php packages
+      apt:
+         name: "{{ packages }}"
+         state: latest
+      vars:
+         packages:
+           - "php{{ php_version }}-cli"
+           - "php{{ php_version }}-fpm"
+      debugger: on_failed
+      tags: php-install-version
+    - name: start php-fpm
+      service:
+        name: "php{{ php_version }}-fpm"
+        state: restarted
+  tags: php

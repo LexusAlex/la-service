@@ -11,10 +11,10 @@
         ssh_key_file: .ssh/id_rsa
       debugger: on_failed
       tags: create-project-user
-    #- name: change mode www-data user
-    #  user:
-    #    name: www-data
-    #    groups: "{{ user_name }}"
-    #  debugger: on_failed
-    #  tags: change-mode-www-data
+    - name: change mode www-data user
+      user:
+        name: www-data
+        groups: "{{ user_name }}"
+      debugger: on_failed
+      tags: change-mode-www-data
   tags: user

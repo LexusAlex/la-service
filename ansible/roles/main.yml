@@ -10,3 +10,9 @@
       tags: fail2ban
     - role: user
       tags: user
+    - role: php
+      tags: php
+    - role: composer
+      tags: composer
+    - role: project
+      tags: project

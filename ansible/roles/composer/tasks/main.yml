@@ -1,0 +1,16 @@
+---
+- name: composer
+  block:
+    - name: download composer
+      script: scripts/composer.sh
+      debugger: on_failed
+      tags: download-composer
+    - name: move composer global
+      command: mv composer.phar /usr/local/bin/composer
+      debugger: on_failed
+      tags: move-composer
+    - name: set permission
+      file:
+        path: /usr/local/bin/composer
+        mode: "a+x"
+  tags: composer
