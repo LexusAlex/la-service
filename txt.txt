@@ -1,3 +1,6 @@
+Защита
+
+https://www.digitalocean.com/community/tutorials/how-to-harden-openssh-on-ubuntu-18-04-ru
 
 Сервис для собственных нужд
 
@@ -32,3 +35,10 @@ https://deworker.pro/edu/series/what-is-react/javascript-render
 
 Для dev разработки docker
 docker compose run --rm backend-php-cli composer
+
+
+Выбор di контейнера
+
+https://github.com/yiisoft/di - здесь нет зависимостей
+https://github.com/PHP-DI/PHP-DI
+https://github.com/laminas/laminas-di
