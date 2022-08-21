@@ -7,7 +7,7 @@
         state: directory
         owner: "www-data"
         group: "www-data"
-        recurse: yes
+        recurse: no
       debugger: on_failed
       tags: create main dir on project
     - name: create directory project
@@ -16,8 +16,25 @@
         state: directory
         owner: "{{ user }}"
         group: "{{ user }}"
-        recurse: yes
+        recurse: no
         mode: "0775"
       debugger: on_failed
-      tags: create directory
+      tags: project-install-soft
+    - name: install soft project
+      apt:
+        name: git
+        update_cache: yes
+        state: present
+      debugger: on_failed
+      tags: install-soft-project
+    - name: clone repo
+      git:
+        repo: "{{ repo }}"
+        dest: "{{ dir }}"
+        clone: yes
+        update: no
+      debugger: on_failed
+      become: yes
+      become_user: "{{ user }}"
+      tags: clone-repo
   tags: project

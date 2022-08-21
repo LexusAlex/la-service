@@ -1,0 +1,14 @@
+---
+- name: deploy
+  block:
+    - name: pull repository
+      git:
+        repo: "{{ repo }}"
+        dest: "{{ path_project }}"
+        clone: no
+        update: yes
+      become: true
+      become_user: "{{ user }}"
+      debugger: on_failed
+      tags: pull repository
+  tags: deploy

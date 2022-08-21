@@ -20,3 +20,5 @@
       tags: nginx
     - role: nginx-host-backend
       tags: nginx-host-backend
+    - role: deploy
+      tags: deploy
