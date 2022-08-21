@@ -37,6 +37,7 @@ https://deworker.pro/edu/series/what-is-react/javascript-render
 docker compose run --rm backend-php-cli composer
 
 -----
+!!!
 Что быстрее unix сокет или tcp сокет
 https://zalinux.ru/?p=6293
 
