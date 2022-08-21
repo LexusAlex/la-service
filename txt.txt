@@ -36,9 +36,38 @@ https://deworker.pro/edu/series/what-is-react/javascript-render
 Для dev разработки docker
 docker compose run --rm backend-php-cli composer
 
+-----
+Что быстрее unix сокет или tcp сокет
+https://zalinux.ru/?p=6293
+
+Примечание: Аргумент fastcgi_pass должен быть определен как TCP-сокет или сокет Unix выбранным FastCGI сервером в его конфигурационном файле. По умолчанию для php-fpm используется сокет
+
+fastcgi_pass unix:/run/php-fpm/php-fpm.sock;
+
+Вы можете использовать также общий TCP-сокет:
+
+fastcgi_pass 127.0.0.1:9000;
+
+Однако, доменные сокеты Unix должны работать быстрее.
+----
+
 
 Выбор di контейнера
 
 https://github.com/yiisoft/di - здесь нет зависимостей
 https://github.com/PHP-DI/PHP-DI
 https://github.com/laminas/laminas-di
+
+
+Версии ПО
+
+php https://github.com/php/php-src/tags
+composer https://github.com/composer/composer/tags
+nginx https://github.com/nginx/nginx/tags
+docker https://github.com/docker/cli/tags
+docker-compose https://github.com/docker/compose/tags
+mysql https://github.com/mysql/mysql-server/tags
+ansible https://github.com/ansible/ansible/tags
+
+Версии библиотек
+

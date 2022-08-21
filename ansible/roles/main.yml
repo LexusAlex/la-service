@@ -16,3 +16,7 @@
       tags: composer
     - role: project
       tags: project
+    - role: nginx
+      tags: nginx
+    - role: nginx-host-backend
+      tags: nginx-host-backend

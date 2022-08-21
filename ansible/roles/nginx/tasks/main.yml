@@ -1,0 +1,71 @@
+---
+- name: install nginx
+  block:
+    - name: install packages
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+          - curl
+          - gnupg2
+          - ca-certificates
+          - lsb-release
+          - ubuntu-keyring
+      debugger: on_failed
+      tags: nginx-packages
+    - name: added key nginx
+      apt_key:
+        url: https://nginx.org/keys/nginx_signing.key
+        state: present
+        keyring: /usr/share/keyrings/nginx-archive-keyring.gpg
+      debugger: on_failed
+      tags: nginx-add-key-file
+    - name: add repository
+      apt_repository: # Репозиторий для основной версии для стабильной это http://nginx.org/packages/ubuntu
+        repo: deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu focal nginx
+        state: present
+      debugger: on_failed
+      tags: nginx-add-repository
+    - name: add file package pin
+      file:
+        path: "/etc/apt/preferences.d/99nginx"
+        state: touch
+      debugger: on_failed
+      tags: nginx-add-file-pin
+    - name: add prioritet
+      blockinfile:
+        path: /etc/apt/preferences.d/99nginx
+        state: present
+        block: |
+          Package: nginx
+          Pin: origin nginx.org
+          Pin: release o=nginx
+          Pin-Priority: 900
+      debugger: on_failed
+      tags: nginx-add-str-prioritet
+    - name: install nginx-server
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+      debugger: on_failed
+      tags: nginx-install-server
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+      debugger: on_failed
+      tags: nginx-start
+    - name: open port
+      ufw:
+        rule: allow
+        port: 8008
+        proto: tcp
+        state: reloaded
+      debugger: on_failed
+      tags: nginx-open-port
+    - name: change user nginx
+      shell: "sed -i 's/user  nginx;/user  www-data;/g' /etc/nginx/nginx.conf && service nginx reload"
+      debugger: on_failed
+      tags: nginx-change-user
+  tags: nginx
