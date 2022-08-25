@@ -55,10 +55,10 @@ fastcgi_pass 127.0.0.1:9000;
 
 
 Выбор di контейнера
-
+https://packagist.org/packages/league/container - здесь вообще нет ничего лишнего
 https://github.com/yiisoft/di - здесь нет зависимостей
 https://github.com/PHP-DI/PHP-DI
-https://github.com/laminas/laminas-di
+https://github.com/laminas/laminas-di - здесь тоже ничего нет
 
 
 Версии ПО
@@ -72,4 +72,6 @@ mysql https://github.com/mysql/mysql-server/tags
 ansible https://github.com/ansible/ansible/tags
 
 Версии библиотек
+
+php -v && composer -V && nginx -v
 
