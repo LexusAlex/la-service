@@ -73,5 +73,5 @@ ansible https://github.com/ansible/ansible/tags
 
 Версии библиотек
 
-php -v && composer -V && nginx -v
+php -v && nginx -v && composer -V
 
