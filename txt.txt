@@ -61,6 +61,13 @@ https://github.com/PHP-DI/PHP-DI
 https://github.com/laminas/laminas-di - здесь тоже ничего нет
 
 
+https://container.thephpleague.com/4.x/definitions/
+
+Фреймворк
+Почти идеал
+https://packagist.org/packages/slim/slim
+
+
 Версии ПО
 
 php https://github.com/php/php-src/tags
@@ -75,3 +82,83 @@ ansible https://github.com/ansible/ansible/tags
 
 php -v && nginx -v && composer -V
 
+
+Docker
+
+docker ps -q -f status=exited | xargs --no-run-if-empty docker rm
+
+docker images - список образов
+
+У phpstorm прекрасный интерфейс для работы с docker
+
+
+Composer
+
+docker compose run --rm backend-php-cli composer install --dry-run - что будет происходить
+docker compose run --rm backend-php-cli composer install --no-dev - не устанавливать пакеты
+docker compose run --rm backend-php-cli composer install --optimize-autoloader быстрая автозагрузка классов
+composer install --working-dir= --no-dev --optimize-autoloader --classmap-authoritative - как запускать на проде
+
+docker compose run --rm backend-php-cli composer require monolog/monolog --dry-run - проверка что будет установлено
+docker compose run --rm backend-php-cli composer remove monolog/monolog -удалить пакет
+
+docker compose run --rm backend-php-cli composer check-platform-reqs - проверка php и расширений
+docker compose run --rm backend-php-cli composer search monolog/monolog - поиск пакетов
+
+docker compose run --rm backend-php-cli composer show -список всех установленных пакетов
+docker compose run --rm backend-php-cli composer show -p - список платформ
+docker compose run --rm backend-php-cli composer show -s - список корневых пакетов
+docker compose run --rm backend-php-cli composer show -N - список имен пакетов
+docker compose run --rm backend-php-cli composer show -l актуальные версии пакетов
+docker compose run --rm backend-php-cli composer show -t дерево
+
+docker compose run --rm backend-php-cli composer suggests - предлагаемые к установке пакеты
+docker compose run --rm backend-php-cli composer outdated -D - что можно обновить
+docker compose run --rm backend-php-cli composer fund у кого указана информация для поддержки
+docker compose run --rm backend-php-cli composer depends laminas/laminas-config-aggregator -r -t от чего зависит пакет
+
+docker compose run --rm backend-php-cli composer validate - валидация схемы
+
+
+Всегда запускаем
+docker compose run --rm backend-php-cli composer validate
+docker compose run --rm backend-php-cli composer status -v
+docker compose run --rm backend-php-cli composer -t -r depends league/container
+docker compose run --rm backend-php-cli composer show
+docker compose run --rm backend-php-cli composer show -t
+
+На боевом сервере всегда делать
+composer install --no-dev --optimize-autoloader --classmap-authoritative
+docker compose run --rm backend-php-cli composer outdated --direct
+
+docker compose run --rm backend-php-cli composer require laminas/laminas-config-aggregator
+
+перевод
+https://github.com/php-ru/composer-doc-ru
+https://composer.json.jolicode.com/
+
+https://php.watch/
+
+
+Примерная структура api
+
+Конфигурация каждого компонента складывается из трех окружений
+development
+production
+test
+
+1. Приложение хранит конфигурацию в переменных окружения.
+2. Переменные окружения меняются между развертываниями.
+3. Это дает гибкость и независимость.
+
+Все приложение состоит из компонентов
+
+Компонент может быть
+доменный - Application это сама логика приложения
+инфраструктурный API Gateway - здесь различные входы в приложение
+вспомогательный - Component это настроки дополнителных компонентов
+
+
+
+Component/
+  /Configuration

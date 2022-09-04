@@ -1,0 +1,24 @@
+{
+    "name": "lexusalex/la-service",
+    "description": "This package is my service",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "files": [
+            "src/Component/Configuration/environment.php"
+        ],
+        "psr-4": {
+            "LaService\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexey Shmelev",
+            "email": "alexsey_89@bk.ru"
+        }
+    ],
+    "require": {
+        "league/container": "^4.2",
+        "laminas/laminas-config-aggregator": "^1.8"
+    }
+}
