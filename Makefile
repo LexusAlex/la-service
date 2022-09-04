@@ -8,8 +8,6 @@ ping:
 	ansible $(UBUNTU_HOST) -i $(UBUNTU_INVENTORY_FILE) -u $(UBUNTU_USER) -m ping
 la-service-all:
 	ansible-playbook -i $(UBUNTU_INVENTORY_FILE) $(UBUNTU_ROLES) -l $(UBUNTU_HOST) -u $(UBUNTU_USER)
-deploy:
-	ssh -o StrictHostKeyChecking=no deploy@${HOST} -p ${PORT} '!!!command!!!'
 
 # Docker
 docker-build:

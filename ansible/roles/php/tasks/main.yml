@@ -3,7 +3,9 @@
   block:
     - name: install soft
       apt:
-        name: software-properties-common
+        name:
+          - software-properties-common
+          - unzip
         state: latest
         update_cache: yes
       debugger: on_failed
@@ -23,6 +25,7 @@
          packages:
            - "php{{ php_version }}-cli"
            - "php{{ php_version }}-fpm"
+           - "php{{ php_version }}-zip"
       debugger: on_failed
       tags: php-install-version
     - name: start php-fpm

@@ -10,5 +10,13 @@
       become: true
       become_user: "{{ user }}"
       debugger: on_failed
-      tags: pull repository
+      tags: pull-repository
+    - name: composer install
+      become: true
+      become_user: "{{ user }}"
+      shell: composer install --no-dev --optimize-autoloader --classmap-authoritative
+      args:
+        chdir: "{{ path_project }}/backend"
+      debugger: on_failed
+      tags: composer-install
   tags: deploy
