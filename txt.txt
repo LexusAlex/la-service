@@ -158,7 +158,29 @@ test
 инфраструктурный API Gateway - здесь различные входы в приложение
 вспомогательный - Component это настроки дополнителных компонентов
 
-
-
 Component/
   /Configuration
+
+
+ansible vars
+
+role
+  deploy
+    repo
+    path_project
+    user
+  nginx-host-backend
+    path
+    php_version
+    config
+    APPLICATION_ENVIRONMENT
+    APPLICATION_DEBUG
+  php
+    php_version
+  project
+    dir
+    user
+    repo
+  user
+    user_name
+    user_password
