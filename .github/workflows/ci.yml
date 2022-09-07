@@ -23,8 +23,8 @@ jobs:
           extensions: mbstring
       - name: Check PHP Version
         run: php -v
-      - name: Check composer validate
-        run: composer validate --working-dir=${{ secrets.REMOTE_PATH }}/backend/
+      - name: Check composer
+        run: composer -v
   build:
     runs-on: ubuntu-20.04
     steps:
