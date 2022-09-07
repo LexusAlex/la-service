@@ -23,10 +23,11 @@ jobs:
           extensions: mbstring
       - name: Check PHP Version
         run: php -v
-      - name: pwd
-        run: composer install --working-dir=/backend/
-      - name: Run test
-        run: php ./backend/vendor/bin/phpunit test
+      - name: composer install
+        run: ${{ runner.os }}
+      #  run: composer install --working-dir=/backend/
+      #- name: Run test
+      #  run: php ./backend/vendor/bin/phpunit test
   build:
     runs-on: ubuntu-20.04
     steps:
