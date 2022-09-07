@@ -24,7 +24,6 @@ jobs:
       - name: Check PHP Version
         run: php -v
       - name: pwd
-        run: pwd
         run: composer install --working-dir=/backend/
       - name: Run test
         run: php ./backend/vendor/bin/phpunit test
