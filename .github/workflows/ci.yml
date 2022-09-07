@@ -25,9 +25,9 @@ jobs:
         run: php -v
       - name: pwd
         run: pwd
-      #  run: composer install --working-dir=${{ secrets.REMOTE_PATH }}/backend/
-      #- name: Run test
-      #  run: php ${{ secrets.REMOTE_PATH }}/backend/vendor/bin/phpunit test
+        run: composer install --working-dir=/backend/
+      - name: Run test
+        run: php ./backend/vendor/bin/phpunit test
   build:
     runs-on: ubuntu-20.04
     steps:
