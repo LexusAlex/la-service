@@ -5,11 +5,31 @@ on:
       - main
 
 jobs:
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: true
+      matrix:
+        php-versions: ['8.0', '8.1']
+    steps:
+      - name: Git checkout placeholder-service
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          coverage: none
+          tools: composer:v2
+          extensions: mbstring
+          env:
+            update: true
+      - name: Check PHP Version
+        run: php -v
   build:
     runs-on: ubuntu-20.04
     steps:
     - name: checkout project
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
     # Подготовительная работа к деплою phpunit, linter, тесты и прочее и последнее что надо сделать это вылить на прод
     - name: push on production server
       uses: appleboy/ssh-action@master
