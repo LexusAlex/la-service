@@ -21,8 +21,6 @@ jobs:
           coverage: none
           tools: composer:v2
           extensions: mbstring
-          env:
-            update: true
       - name: Check PHP Version
         run: php -v
   build:
