@@ -10,6 +10,6 @@ class TestTest extends TestCase
 {
     public function testConf()
     {
-        self::assertCount(2,[1,2]);
+        self::assertCount(2,[2]);
     }
 }
