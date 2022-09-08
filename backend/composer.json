@@ -20,5 +20,8 @@
     "require": {
         "league/container": "^4.2",
         "laminas/laminas-config-aggregator": "^1.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }

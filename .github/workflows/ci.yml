@@ -37,8 +37,8 @@ jobs:
       - name: Install dependencies
         run: composer install --working-dir=backend
       #  run: composer install --working-dir=/backend/
-      #- name: Run test
-      #  run: php ./backend/vendor/bin/phpunit test
+      - name: Run test
+        run: php backend/vendor/bin/phpunit test
   build:
     runs-on: ubuntu-20.04
     steps:
