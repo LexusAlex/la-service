@@ -21,6 +21,9 @@ jobs:
           coverage: none
           tools: composer:v2
           extensions: mbstring
+        env:
+          APPLICATION_ENVIRONMENT: test
+          APPLICATION_DEBUG: 1
       - name: Check PHP Version
         run: php -v
       - name: Get composer cache directory

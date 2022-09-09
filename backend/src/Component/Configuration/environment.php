@@ -24,5 +24,5 @@ function environment(string $name, ?string $default = null): string
         return $default;
     }
 
-    throw new RuntimeException('Undefined env ' . $name);
+    throw new RuntimeException('Undefined environment ' . $name);
 }
