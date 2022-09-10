@@ -184,3 +184,29 @@ role
   user
     user_name
     user_password
+
+
+phpunit
+
+Покрытие кода тестами
+https://antonshell.me/post/php-code-coverage
+Конфигурации библиотек добавить в отдельную директорию
+
+docker compose run --rm backend-php-cli composer require --dev phpunit/phpunit
+
+https://github.com/marketplace/actions/phpunit-php-actions?ysclid=l7p6hw1ybz942470325
+
+https://antonshell.me/post/github-actions-symfony?ysclid=l7qkogkddf789528695
+
+
+Доделать:
+1.
+Тестирование файла переменной окружения
+
+public function testEnvironmentFile()
+    {
+        putenv("TEST_FILE=backend/123");
+        //print_r(passthru('pwd'));
+        var_dump(environment('TEST_FILE'));
+    }
+2.

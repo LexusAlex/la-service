@@ -20,4 +20,9 @@ class EnvironmentTest extends TestCase
     {
         self::assertEquals(environment('APPLICATION_ENVIRONMENT'), getenv('APPLICATION_ENVIRONMENT'),'ENVIRONMENT not equals');
     }
+
+    public function testEnvironmentDefault()
+    {
+        self::assertEquals('prod',environment('APPLICATION_ENVIRONMENT123', 'prod'));
+    }
 }
