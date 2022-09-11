@@ -22,8 +22,10 @@
         }
     ],
     "require": {
+        "laminas/laminas-config-aggregator": "^1.8",
         "league/container": "^4.2",
-        "laminas/laminas-config-aggregator": "^1.8"
+        "slim/psr7": "^1.5",
+        "slim/slim": "^4.10"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

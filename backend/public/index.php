@@ -10,6 +10,6 @@ $dependencies = (require __DIR__ . '/../src/Component/Configuration/dependencies
 
 $container = (require __DIR__ . '/../src/Component/Configuration/container.php')($dependencies);
 
-header('Content-Type: application/json');
+$application = (require __DIR__ . '/../src/Component/Configuration/application.php')($container);
 
-echo '{}';
+$application->run();

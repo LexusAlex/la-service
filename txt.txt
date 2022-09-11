@@ -113,7 +113,7 @@ docker compose run --rm backend-php-cli composer show -l актуальные в
 docker compose run --rm backend-php-cli composer show -t дерево
 
 docker compose run --rm backend-php-cli composer suggests - предлагаемые к установке пакеты
-docker compose run --rm backend-php-cli composer outdated -D - что можно обновить
+docker compose run --rm backend-php-cli composer outdated --direct - что можно обновить
 docker compose run --rm backend-php-cli composer fund у кого указана информация для поддержки
 docker compose run --rm backend-php-cli composer depends laminas/laminas-config-aggregator -r -t от чего зависит пакет
 
@@ -210,3 +210,37 @@ public function testEnvironmentFile()
         var_dump(environment('TEST_FILE'));
     }
 2.
+
+
+Middleware
+
+Bootstap по БЭМ
+https://guides.hexlet.io/ru/bootstrap/?ysclid=l7xcr0zd5v673629012
+
+PSR
+
+PSR-7: HTTP Messages Общие интерфейсы запроса и ответа
+MessageInterface
+  RequestInterface - запрос
+    ServerRequestInterface - серверный запрос
+  ResponseInterface - ответ
+StreamInterface - тело сообщения
+UploadedFileInterface - загруженные файлы
+UriInterface - url адрес
+PSR-15: HTTP Server Request Handlers
+  MiddlewareInterface - сам посредник между запросом и ответом c методом куда передается handler process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface;
+  RequestHandlerInterface - фреймворко независимый контроллер должен быть с методом handle handle(ServerRequestInterface $request): ResponseInterface; такой контроллер может быть в любом приложении
+    Это просто действие
+PSR-17: HTTP Factories Интерфейсы к фабрикам для запросов и ответов идут поверх psr7
+PSR-18: HTTP Client клиент
+
+PSR-1 PSR-12 Code style
+PSR-3: Logger Interface Логирование
+PSR-4: Autoloader Стандарт загрузки файлов
+
+PSR-6: Caching Interface система кеширования
+PSR-16: Common Interface for Caching Libraries
+
+PSR-11: Container interface Контейнер
+
+PSR-14: Event Dispatcher Диспетчер событий
