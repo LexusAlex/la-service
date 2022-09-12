@@ -212,6 +212,11 @@ public function testEnvironmentFile()
 2.
 
 
+Установка
+phplint
+php-cs-fixer
+psalm
+
 Middleware
 
 Bootstap по БЭМ
