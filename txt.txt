@@ -255,3 +255,21 @@ PSR-16: Common Interface for Caching Libraries
 PSR-11: Container interface Контейнер
 
 PSR-14: Event Dispatcher Диспетчер событий
+
+
+---
+Работа slim framework
+
+1. AppFactory::createFromContainer($container) -
+Автоматическое Определение фабрики из следующих вариантов:
+  SlimPsr17Factory::class,
+  HttpSoftPsr17Factory::class,
+  NyholmPsr17Factory::class,
+  LaminasDiactorosPsr17Factory::class,
+  GuzzlePsr17Factory::class,
+
+  В нашем случае это пакет slim psr 7
+  $responseFactory = Slim\Psr7\Factory\ResponseFactory
+  Если ничего не найдено из этого списка будет ошибка
+2. Проверка на свой callableResolver,routeCollector,routeResolver,middlewareDispatcher
+  В данном случае у нас их нет
