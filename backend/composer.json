@@ -28,10 +28,12 @@
         "slim/slim": "^4.10"
     },
     "require-dev": {
+        "overtrue/phplint": "^5.3",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-latest"
     },
     "scripts": {
-        "test": "phpunit --colors=always"
+        "phpunit": "phpunit --colors=always --configuration=etc/phpunit.xml",
+        "phplint": "phplint --configuration=etc/.phplint.yml -w"
     }
 }

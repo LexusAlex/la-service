@@ -25,3 +25,9 @@ docker-down:
 # Composer
 composer-install:
 	docker compose run --rm backend-php-cli composer install
+
+# Libraries
+backend-php-lint:
+	docker compose run --rm backend-php-cli composer phplint
+backend-phpunit:
+	docker compose run --rm backend-php-cli composer phpunit

@@ -41,7 +41,7 @@ jobs:
         run: composer install --working-dir=backend
       #  run: composer install --working-dir=/backend/
       - name: Run test
-        run: composer --working-dir=backend test
+        run: composer --working-dir=backend phpunit
   build:
     runs-on: ubuntu-20.04
     steps:

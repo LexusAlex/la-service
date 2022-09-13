@@ -21,6 +21,7 @@ https://github.com/LexusAlex/ci-cd-test
 2. Минимум хлама в проекте
 3. Не доверяем не одному узлу системы
 4. Всегда все проверяем
+5. Обновялем только по делу
 
 Пример github action для прогона тестов
 
@@ -214,6 +215,11 @@ public function testEnvironmentFile()
 
 Установка
 phplint
+----
+
+docker compose run --rm backend-php-cli composer require overtrue/phplint --dev
+
+
 php-cs-fixer
 psalm
 
