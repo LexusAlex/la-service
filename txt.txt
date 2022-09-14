@@ -259,7 +259,8 @@ PSR-14: Event Dispatcher Диспетчер событий
 
 ---
 Работа slim framework
-
+Начальная инициализация
+-------
 1. AppFactory::createFromContainer($container) -
 Автоматическое Определение фабрики из следующих вариантов:
   SlimPsr17Factory::class,
@@ -271,5 +272,42 @@ PSR-14: Event Dispatcher Диспетчер событий
   В нашем случае это пакет slim psr 7
   $responseFactory = Slim\Psr7\Factory\ResponseFactory
   Если ничего не найдено из этого списка будет ошибка
+      Could not detect any PSR-17 ResponseFactory implementations. " .
+      "Please install a supported implementation in order to use `AppFactory::create()`. " .
+      "See https://github.com/slimphp/Slim/blob/4.x/README.md for a list of supported implementations.
 2. Проверка на свой callableResolver,routeCollector,routeResolver,middlewareDispatcher
   В данном случае у нас их нет
+3. Создаем приложение с параметрами в этих переменных
+    $responseFactory, = Slim\Psr7\Factory\ResponseFactory PSR-17 совместимая фабрика серверного http-запроса
+    $container = наш контейнер,  	Контейнер зависимостей
+    $callableResolver, Обработчик вызываемых методов
+    $routeCollector,    Роутер
+    $routeResolver,     Обработчик результатов роутинга
+    $middlewareDispatcher Промежуточное ПО
+
+4. Там идет вызов родительского конструкутора RouteCollectorProxy
+$responseFactory,
+$callableResolver ?? new CallableResolver($container),
+$container,
+$routeCollector
+
+Где создается CallableResolver с нашим контейнером на борту
+Далее нужно создать new RouteCollector($responseFactory, $callableResolver, $container); это роутер
+Куда передаются известные на данный момент обьекты|
+
+Внутри
+$this->responseFactory = $responseFactory;
+$this->callableResolver = $callableResolver;
+$this->container = $container;
+$this->defaultInvocationStrategy = $defaultInvocationStrategy ?? new RequestResponse(); там есть код для вызова как функцю, но в данном случае этопросто пустой обьект
+$this->routeParser = $routeParser ?? new RouteParser($this);
+
+RouteParser - здесь создаем новый парсер и так же создаем обьект другой библиотеки FastRoute\RouteParser\Std это то что использует слим для работы
+
+В итоге на руках у нас следующие переменные
+$responseFactory,
+$callableResolver
+$container,
+$routeCollector
+
+Теперь создаем new RouteResolver($this->routeCollector);
