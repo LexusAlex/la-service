@@ -310,4 +310,11 @@ $callableResolver
 $container,
 $routeCollector
 
-Теперь создаем new RouteResolver($this->routeCollector);
+Теперь создаем new RouteResolver($this->routeCollector); Там внутри в конструктуре создается new Dispatcher($routeCollector);
+Далее new RouteRunner($this->routeResolver, $this->routeCollector->getRouteParser(), $this); Пока это все подготовитетельные обьекты
+
+Время для - middleware $middlewareDispatcher = new MiddlewareDispatcher($routeRunner, $this->callableResolver, $container); PSR-15
+устанавливаем тип и как всегда присваемваем переменным
+теперь на руках еще и $this->middlewareDispatcher = $middlewareDispatcher;
+----------
+Добаввление middleware
