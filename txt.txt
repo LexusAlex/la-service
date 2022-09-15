@@ -316,5 +316,26 @@ $routeCollector
 Время для - middleware $middlewareDispatcher = new MiddlewareDispatcher($routeRunner, $this->callableResolver, $container); PSR-15
 устанавливаем тип и как всегда присваемваем переменным
 теперь на руках еще и $this->middlewareDispatcher = $middlewareDispatcher;
+
+Сейчас у нас сделана вся подготовительная работа
 ----------
-Добаввление middleware
+Добавление middleware
+Это такие посредники код которых выполнятся до выполнения action
+Для обработки ошибок
+addErrorMiddleware(false,false,false)
+
+Здесь создаем middleware
+
+$errorMiddleware =
+new ErrorMiddleware(
+$this->getCallableResolver(), разрешитель имен
+$this->getResponseFactory(), psr7 запрос ответ
+$displayErrorDetails, показывать ли детальное отображение ошибок
+$logErrors, вести ли ошибки в лог
+$logErrorDetails, вести ли в лог детальное отображение ошибок
+$logger обьект логгера
+);
+
+
+---------
+Добавление роутов
