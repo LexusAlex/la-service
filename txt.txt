@@ -159,8 +159,12 @@ test
 инфраструктурный API Gateway - здесь различные входы в приложение
 вспомогательный - Component это настроки дополнителных компонентов
 
+API Gateway/
+  /Http
+  /Console
 Component/
   /Configuration
+  /Slim
 
 
 ansible vars
@@ -336,6 +340,10 @@ $logErrorDetails, вести ли в лог детальное отображе�
 $logger обьект логгера
 );
 
+
+Вызов middleware идет наоборот снизу вверх, нужно это учитывать
+$application->add(\LaService\ApiGateway\Http\Middleware\Test::class);
+$application->add(\LaService\ApiGateway\Http\Middleware\Test2::class);
 
 ---------
 Добавление роутов
