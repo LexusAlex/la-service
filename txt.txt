@@ -159,12 +159,17 @@ test
 инфраструктурный API Gateway - здесь различные входы в приложение
 вспомогательный - Component это настроки дополнителных компонентов
 
-API Gateway/
+Структура - где каждый компонент отвечает за свою функциональность
+
+API Gateway/ Входы в приложение
   /Http
+    /Action Общие экшены
   /Console
-Component/
-  /Configuration
-  /Slim
+Component/ Вспомогательные компоненты
+  /Configuration Конфигурация всего приложения в целом
+  /Slim Конфигурация фреймворка slim
+    /Response Ответы экшена, завязан на Slim\Psr7
+Application/ Компоненты приложения
 
 
 ansible vars

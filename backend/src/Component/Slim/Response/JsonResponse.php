@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LaService\ApiGateway\Http\Response;
+namespace LaService\Component\Slim\Response;
 
 use JsonException;
 use Slim\Psr7\Factory\StreamFactory;
