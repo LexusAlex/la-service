@@ -2,24 +2,10 @@
 
 declare(strict_types=1);
 
-use League\Container\Argument\Literal\ObjectArgument;
-use League\Container\Container;
-use League\Container\Definition\Definition;
-
+use Yiisoft\Di\Container;
+use Yiisoft\Di\ContainerConfig;
 
 return static function (array $dependencies): Container {
-    $definitions = [];
-
-    foreach ($dependencies as $keyDependency => $dependency) {
-        $definitions[] = (new Definition($keyDependency, (new ObjectArgument($dependency))));
-    }
-
-    $aggregate = new League\Container\Definition\DefinitionAggregate($definitions);
-    /*
-    $container->delegate(
-        new League\Container\ReflectionContainer()
-    );
-    */
-    return new League\Container\Container($aggregate);
+    return new Container(ContainerConfig::create()->withDefinitions($dependencies));
 };
 

@@ -91,7 +91,7 @@ docker ps -q -f status=exited | xargs --no-run-if-empty docker rm
 docker images - список образов
 
 У phpstorm прекрасный интерфейс для работы с docker
-
+docker compose run --rm backend-php-cli composer require yiisoft/di --prefer-dist
 
 Composer
 

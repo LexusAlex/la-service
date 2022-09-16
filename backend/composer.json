@@ -23,9 +23,9 @@
     ],
     "require": {
         "laminas/laminas-config-aggregator": "^1.8",
-        "league/container": "^4.2",
         "slim/psr7": "^1.5",
-        "slim/slim": "^4.10"
+        "slim/slim": "^4.10",
+        "yiisoft/di": "^1.1"
     },
     "require-dev": {
         "overtrue/phplint": "^5.3",
