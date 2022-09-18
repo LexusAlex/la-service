@@ -40,7 +40,9 @@ jobs:
       - name: Install dependencies
         run: composer install --working-dir=backend
       #  run: composer install --working-dir=/backend/
-      - name: Run test
+      - name: Run php lint
+        run: composer --working-dir=backend phplint
+      - name: Run phpunit test
         run: composer --working-dir=backend phpunit
   build:
     runs-on: ubuntu-20.04

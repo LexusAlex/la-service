@@ -3,8 +3,8 @@ UBUNTU_ROLES=ansible/roles/main.yml
 UBUNTU_USER=root
 UBUNTU_HOST=la-service
 
-# Common
-init: docker-build docker-up backend-init
+# Common development
+init: docker-build up backend-init
 up: docker-up
 down: docker-down
 restart: down up
@@ -29,6 +29,8 @@ docker-down:
 # Composer
 composer-install:
 	docker compose run --rm backend-php-cli composer install
+composer-be-updated:
+	docker compose run --rm backend-php-cli composer outdated --direct
 
 # Libraries
 backend-php-lint:

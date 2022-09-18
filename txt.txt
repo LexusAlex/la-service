@@ -377,3 +377,5 @@ $application->run();
 4. $responseEmitter->emit($response);
 5. Проверка на пустоту $this->isResponseEmpty($response)
 6. Происходит ответ в браузер $this->emitStatusLine($response);
+
+----------
