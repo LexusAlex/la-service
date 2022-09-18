@@ -5,6 +5,10 @@ UBUNTU_HOST=la-service
 
 # Common
 init: docker-build docker-up backend-init
+up: docker-up
+down: docker-down
+restart: down up
+check: backend-php-lint backend-php-phpunit
 backend-init: composer-install
 # frontend-init:
 
@@ -29,5 +33,5 @@ composer-install:
 # Libraries
 backend-php-lint:
 	docker compose run --rm backend-php-cli composer phplint
-backend-phpunit:
+backend-php-phpunit:
 	docker compose run --rm backend-php-cli composer phpunit

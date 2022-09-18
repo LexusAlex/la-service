@@ -5,20 +5,19 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Slim\Interfaces\CallableResolverInterface;
 use Slim\Middleware\ErrorMiddleware;
+use function LaService\Component\Configuration\environment;
 
 return [
     ErrorMiddleware::class => function (ContainerInterface $container): ErrorMiddleware {
         $callableResolver = $container->get(CallableResolverInterface::class);
         $responseFactory = $container->get(ResponseFactoryInterface::class);
 
-        $middleware = new ErrorMiddleware(
+        return new ErrorMiddleware(
             $callableResolver,
             $responseFactory,
-            false,
+            (boolean)environment('APPLICATION_DEBUG', '0'),
             true,
             true
         );
-
-        return $middleware;
     },
 ];
