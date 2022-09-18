@@ -28,12 +28,14 @@
         "yiisoft/di": "^1.1"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.11",
         "overtrue/phplint": "^5.3",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-latest"
     },
     "scripts": {
         "phpunit": "phpunit --colors=always --configuration=etc/phpunit.xml",
-        "phplint": "phplint --configuration=etc/.phplint.yml -w"
+        "phplint": "phplint --configuration=etc/.phplint.yml -w",
+        "php-cs-fixer": "php-cs-fixer --config=etc/.php-cs-fixer.php --allow-risky=yes "
     }
 }

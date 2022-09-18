@@ -230,6 +230,9 @@ docker compose run --rm backend-php-cli composer require overtrue/phplint --dev
 
 
 php-cs-fixer
+
+docker compose run --rm backend-php-cli composer require friendsofphp/php-cs-fixer --dev
+
 psalm
 
 Middleware

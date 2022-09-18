@@ -10,19 +10,19 @@ function environment(string $name, ?string $default = null): string
 {
     $value = getenv($name);
 
-    if ($value !== false) {
+    if (false !== $value) {
         return $value;
     }
 
-    $file = getenv($name . '_FILE');
+    $file = getenv($name.'_FILE');
 
-    if ($file !== false) {
+    if (false !== $file) {
         return trim(file_get_contents($file));
     }
 
-    if ($default !== null) {
+    if (null !== $default) {
         return $default;
     }
 
-    throw new RuntimeException('Undefined environment ' . $name);
+    throw new RuntimeException('Undefined environment '.$name);
 }

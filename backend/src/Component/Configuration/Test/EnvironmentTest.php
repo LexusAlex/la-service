@@ -4,25 +4,31 @@ declare(strict_types=1);
 
 namespace LaService\Component\Configuration\Test;
 
-use RuntimeException;
-use PHPUnit\Framework\TestCase;
 use function LaService\Component\Configuration\environment;
 
-class EnvironmentTest extends TestCase
+use PHPUnit\Framework\TestCase;
+use RuntimeException;
+
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
+final class EnvironmentTest extends TestCase
 {
-    public function testUndefined()
+    public function testUndefined(): void
     {
         $this->expectException(RuntimeException::class);
         environment('APPLICATION_ENVIRONMENT1');
     }
 
-    public function testEnvironmentType()
+    public function testEnvironmentType(): void
     {
-        self::assertEquals(environment('APPLICATION_ENVIRONMENT'), getenv('APPLICATION_ENVIRONMENT'),'ENVIRONMENT not equals');
+        static::assertSame(environment('APPLICATION_ENVIRONMENT'), getenv('APPLICATION_ENVIRONMENT'), 'ENVIRONMENT not equals');
     }
 
-    public function testEnvironmentDefault()
+    public function testEnvironmentDefault(): void
     {
-        self::assertEquals('prod',environment('APPLICATION_ENVIRONMENT123', 'prod'));
+        static::assertSame('prod', environment('APPLICATION_ENVIRONMENT123', 'prod'));
     }
 }

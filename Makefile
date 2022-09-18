@@ -37,3 +37,7 @@ backend-php-lint:
 	docker compose run --rm backend-php-cli composer phplint
 backend-php-phpunit:
 	docker compose run --rm backend-php-cli composer phpunit
+backend-php-cs-fixer-dry-run:
+	docker compose run --rm backend-php-cli composer php-cs-fixer fix -- --dry-run --diff
+backend-php-cs-fixer:
+	docker compose run --rm backend-php-cli composer php-cs-fixer fix
