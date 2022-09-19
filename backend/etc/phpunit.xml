@@ -13,6 +13,7 @@
     <testsuites>
         <testsuite name="default">
             <directory>../src/Component/Configuration/Test</directory>
+            <directory>../src/Component/Slim/Test</directory>
         </testsuite>
     </testsuites>
 </phpunit>
