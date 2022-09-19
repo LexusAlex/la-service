@@ -10,8 +10,6 @@ use stdClass;
 
 /**
  * @internal
- *
- * @coversNothing
  */
 final class JsonResponseTest extends TestCase
 {
@@ -19,9 +17,9 @@ final class JsonResponseTest extends TestCase
     {
         $response = new JsonResponse(0, 201);
 
-        static::assertSame('application/json', $response->getHeaderLine('Content-Type'));
-        static::assertSame('0', $response->getBody()->getContents());
-        static::assertSame(201, $response->getStatusCode());
+        self::assertSame('application/json', $response->getHeaderLine('Content-Type'));
+        self::assertSame('0', $response->getBody()->getContents());
+        self::assertSame(201, $response->getStatusCode());
     }
 
     /**
@@ -31,9 +29,9 @@ final class JsonResponseTest extends TestCase
     {
         $response = new JsonResponse($source);
 
-        static::assertSame('application/json', $response->getHeaderLine('Content-Type'));
-        static::assertSame($expect, $response->getBody()->getContents());
-        static::assertSame(200, $response->getStatusCode());
+        self::assertSame('application/json', $response->getHeaderLine('Content-Type'));
+        self::assertSame($expect, $response->getBody()->getContents());
+        self::assertSame(200, $response->getStatusCode());
     }
 
     /**

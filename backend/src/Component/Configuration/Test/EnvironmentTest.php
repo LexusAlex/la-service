@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace LaService\Component\Configuration\Test;
 
-use function LaService\Component\Configuration\environment;
-
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
+use function LaService\Component\Configuration\environment;
+
 /**
  * @internal
- *
- * @coversNothing
  */
 final class EnvironmentTest extends TestCase
 {
@@ -24,11 +22,11 @@ final class EnvironmentTest extends TestCase
 
     public function testEnvironmentType(): void
     {
-        static::assertSame(environment('APPLICATION_ENVIRONMENT'), getenv('APPLICATION_ENVIRONMENT'), 'ENVIRONMENT not equals');
+        self::assertSame(environment('APPLICATION_ENVIRONMENT'), getenv('APPLICATION_ENVIRONMENT'), 'ENVIRONMENT not equals');
     }
 
     public function testEnvironmentDefault(): void
     {
-        static::assertSame('prod', environment('APPLICATION_ENVIRONMENT123', 'prod'));
+        self::assertSame('prod', environment('APPLICATION_ENVIRONMENT123', 'prod'));
     }
 }

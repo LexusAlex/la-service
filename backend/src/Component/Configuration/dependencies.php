@@ -16,8 +16,8 @@ $configuration = [];
 
 foreach ($modules as $nameModule => $module) {
     foreach ($module as $component) {
-        $configuration[] = new PhpFileProvider(__DIR__."/../../{$nameModule}/{$component}/Configuration/common/*.php");
-        $configuration[] = new PhpFileProvider(__DIR__."/../../{$nameModule}/{$component}/Configuration/".environment('APPLICATION_ENVIRONMENT', 'production').'/*.php');
+        $configuration[] = new PhpFileProvider(__DIR__ . "/../../{$nameModule}/{$component}/Configuration/common/*.php");
+        $configuration[] = new PhpFileProvider(__DIR__ . "/../../{$nameModule}/{$component}/Configuration/" . environment('APPLICATION_ENVIRONMENT', 'production') . '/*.php');
     }
 }
 

@@ -14,7 +14,7 @@ function environment(string $name, ?string $default = null): string
         return $value;
     }
 
-    $file = getenv($name.'_FILE');
+    $file = getenv($name . '_FILE');
 
     if (false !== $file) {
         return trim(file_get_contents($file));
@@ -24,5 +24,5 @@ function environment(string $name, ?string $default = null): string
         return $default;
     }
 
-    throw new RuntimeException('Undefined environment '.$name);
+    throw new RuntimeException('Undefined environment ' . $name);
 }
