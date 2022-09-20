@@ -172,6 +172,8 @@ Component/ Вспомогательные компоненты
 Application/ Компоненты приложения
 
 
+Для контроля структуры можно установить https://qossmic.github.io/deptrac/#getting-started
+
 ansible vars
 
 role
