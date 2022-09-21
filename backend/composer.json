@@ -29,13 +29,17 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.11",
+        "lctrs/psalm-psr-container-plugin": "^1.7",
         "overtrue/phplint": "^5.3",
         "phpunit/phpunit": "^9.5",
-        "roave/security-advisories": "dev-latest"
+        "psalm/plugin-phpunit": "^0.17.0",
+        "roave/security-advisories": "dev-latest",
+        "vimeo/psalm": "^4.27"
     },
     "scripts": {
         "phpunit": "phpunit --colors=always --configuration=etc/phpunit.xml",
         "phplint": "phplint --configuration=etc/.phplint.yml -w",
-        "php-cs-fixer": "php-cs-fixer --config=etc/.php-cs-fixer.php --allow-risky=yes "
+        "php-cs-fixer": "php-cs-fixer --config=etc/.php-cs-fixer.php --allow-risky=yes",
+        "psalm": "psalm --config=etc/psalm.xml"
     }
 }
