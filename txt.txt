@@ -132,7 +132,12 @@ docker compose run --rm backend-php-cli composer show -t
 composer install --no-dev --optimize-autoloader --classmap-authoritative
 docker compose run --rm backend-php-cli composer outdated --direct
 
+docker compose run --rm backend-php-cli composer require --dev vimeo/psalm
+
+webmozart/path-util is abandoned пакет будет удален https://github.com/vimeo/psalm/issues/6883
+
 docker compose run --rm backend-php-cli composer require laminas/laminas-config-aggregator
+docker compose run --rm backend-php-cli composer update roave/security-advisories
 
 перевод
 https://github.com/php-ru/composer-doc-ru
