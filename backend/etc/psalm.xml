@@ -23,10 +23,5 @@
 
     <issueHandlers>
         <LessSpecificReturnType errorLevel="info" />
-        <PropertyNotSetInConstructor>
-            <errorLevel type="suppress">
-                <file name="../src/Component/Slim/Response/JsonResponse.php" />
-            </errorLevel>
-        </PropertyNotSetInConstructor>
     </issueHandlers>
 </psalm>
