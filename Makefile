@@ -8,7 +8,7 @@ init: docker-build up backend-init
 up: docker-up
 down: docker-down
 restart: down up
-check: backend-php-lint backend-php-phpunit
+check: backend-php-lint backend-php-cs-fixer backend-php-phpunit backend-php-psalm
 backend-init: composer-install
 # frontend-init:
 

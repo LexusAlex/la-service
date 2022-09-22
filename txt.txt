@@ -243,6 +243,12 @@ docker compose run --rm backend-php-cli composer require friendsofphp/php-cs-fix
 
 psalm
 
+Прибил гвоздями ошибку, пока не знаю как делать правильно
+<errorLevel type="suppress">
+        <file name="../src/Component/Slim/Response/JsonResponse.php" />
+    </errorLevel>
+</PropertyNotSetInConstructor>
+
 Middleware
 
 Bootstap по БЭМ

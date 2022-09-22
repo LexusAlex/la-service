@@ -42,8 +42,12 @@ jobs:
       #  run: composer install --working-dir=/backend/
       - name: Run php lint
         run: composer --working-dir=backend phplint
+      - name: Run php cs fixer
+        run: composer --working-dir=backend php-cs-fixer fix -- --dry-run --diff
       - name: Run phpunit test
         run: composer --working-dir=backend phpunit
+      - name: Run psalm
+        run: composer --working-dir=backend psalm
   build:
     runs-on: ubuntu-20.04
     steps:
