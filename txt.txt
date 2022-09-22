@@ -396,3 +396,10 @@ $application->run();
 6. Происходит ответ в браузер $this->emitStatusLine($response);
 
 ----------
+
+Расмотреть
+
+infection
+deptrac
+
+Логирование
