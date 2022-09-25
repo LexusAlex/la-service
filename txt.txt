@@ -397,6 +397,16 @@ $application->run();
 
 ----------
 
+Проверяем почему не можем обновиться до следующей версии пакета
+docker compose run --rm backend-php-cli composer update phpunit/phpunit:9.5.25
+
+Problem 1
+    - Root composer.json requires phpunit/phpunit ^9.5 -> satisfiable by phpunit/phpunit[9.5.25].
+    - phpunit/phpunit 9.5.25 requires sebastian/comparator ^4.0.8 -> found sebastian/comparator[4.0.8] but the package is fixed to 4.0.6 (lock file version) by a partial update and that version does not match. Make sure you list it as an argument for the update command.
+
+
+Продумать нужно ли ставить sentry
+
 Расмотреть
 
 infection

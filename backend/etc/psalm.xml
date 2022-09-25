@@ -26,6 +26,7 @@
         <PropertyNotSetInConstructor>
             <errorLevel type="suppress">
                 <file name="../src/Component/Slim/Response/JsonResponse.php" />
+                <file name="../src/Component/Slim/ErrorHandler/LogErrorHandler.php" />
             </errorLevel>
         </PropertyNotSetInConstructor>
     </issueHandlers>

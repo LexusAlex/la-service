@@ -8,7 +8,7 @@ use Laminas\ConfigAggregator\PhpFileProvider;
 use function LaService\Component\Configuration\environment;
 
 $modules = [
-    'Component' => ['Configuration', 'Slim'],
+    'Component' => ['Configuration', 'Slim', 'Monolog'],
     'Application' => [],
 ];
 

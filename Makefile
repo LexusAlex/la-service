@@ -31,6 +31,8 @@ composer-install:
 	docker compose run --rm backend-php-cli composer install
 composer-be-updated:
 	docker compose run --rm backend-php-cli composer outdated --direct
+composer-be-updated-all:
+	docker compose run --rm backend-php-cli composer show -l -o
 
 # Libraries
 backend-php-lint:
