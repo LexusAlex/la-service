@@ -28,3 +28,9 @@ services:
      APPLICATION_DEBUG: 1
     volumes:
       - ./backend:/la-service
+  frontend-node-cli:
+    build:
+      context: frontend/docker
+      dockerfile: node/Dockerfile
+    volumes:
+      - ./frontend:/la-service

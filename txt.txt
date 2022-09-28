@@ -414,3 +414,7 @@ infection
 deptrac
 
 Логирование
+
+
+frontend
+docker compose run --rm -u 1000:1000 frontend-node-cli npx create-react-app my-app
