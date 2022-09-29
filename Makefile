@@ -34,6 +34,10 @@ composer-be-updated:
 composer-be-updated-all:
 	docker compose run --rm backend-php-cli composer show -l -o
 
+# Npm
+npm-install:
+	docker compose run --rm frontend-node-cli npm install
+
 # Libraries
 backend-php-lint:
 	docker compose run --rm backend-php-cli composer phplint

@@ -418,3 +418,11 @@ deptrac
 
 frontend
 docker compose run --rm -u 1000:1000 frontend-node-cli npx create-react-app my-app
+
+
+npm
+npm i package-name --save-dev установка пакета
+npm un package-name удаление пакета
+npm auditgit fix --force
+docker compose run --rm frontend-node-cli npm ls показать пакеты в виде дерева
+docker compose run --rm frontend-node-cli npm outdated --depth=0
