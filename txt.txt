@@ -426,3 +426,6 @@ npm un package-name удаление пакета
 npm auditgit fix --force
 docker compose run --rm frontend-node-cli npm ls показать пакеты в виде дерева
 docker compose run --rm frontend-node-cli npm outdated --depth=0
+
+Хорошая статья
+https://habr.com/ru/company/domclick/blog/510812/
