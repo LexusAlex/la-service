@@ -13,7 +13,7 @@ final class LogErrorHandler extends ErrorHandler
         $this->logger->error($this->exception->getMessage(), [
             'exception' => $this->exception,
             'url' => (string)$this->request->getUri(),
-            'ip' => (string)$this->request->getServerParams()['REMOTE_ADDR'],
+            'ip' => (\array_key_exists('REMOTE_ADDR', $this->request->getServerParams())) ? (string)$this->request->getServerParams()['REMOTE_ADDR'] : null,
         ]);
     }
 }

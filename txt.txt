@@ -396,6 +396,10 @@ $application->run();
 6. Происходит ответ в браузер $this->emitStatusLine($response);
 
 ----------
+Создание приложения для тестов
+1. Создание чистого приложения без его запуска
+2. Создание запроса
+
 
 Проверяем почему не можем обновиться до следующей версии пакета
 docker compose run --rm backend-php-cli composer update phpunit/phpunit:9.5.25

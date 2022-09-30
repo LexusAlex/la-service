@@ -12,6 +12,7 @@
          verbose="true">
     <testsuites>
         <testsuite name="default">
+            <directory>../src/ApiGateway/Http/Test</directory>
             <directory>../src/Component/Configuration/Test</directory>
             <directory>../src/Component/Slim/Test</directory>
         </testsuite>
