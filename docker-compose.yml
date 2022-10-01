@@ -17,6 +17,11 @@ services:
     environment:
       APPLICATION_ENVIRONMENT: development
       APPLICATION_DEBUG: 1
+      MYSQL_HOST: backend-mysql
+      MYSQL_USER: la-service
+      MYSQL_PASSWORD: la-service
+      MYSQL_DATABASE: la-service
+      MYSQL_CHARSET: utf8
     volumes:
       - ./backend:/la-service
   backend-php-cli:
@@ -26,11 +31,29 @@ services:
     environment:
      APPLICATION_ENVIRONMENT: development
      APPLICATION_DEBUG: 1
+     MYSQL_HOST: backend-mysql
+     MYSQL_USER: la-service
+     MYSQL_PASSWORD: la-service
+     MYSQL_DATABASE: la-service
+     MYSQL_CHARSET: utf8
     volumes:
       - ./backend:/la-service
+  backend-mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_USER: la-service
+      MYSQL_PASSWORD: la-service
+      MYSQL_ROOT_PASSWORD: la-service
+      MYSQL_DATABASE: la-service
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
   frontend-node-cli:
     build:
       context: frontend/docker
       dockerfile: node/Dockerfile
     volumes:
       - ./frontend:/la-service
+volumes:
+  mysql:

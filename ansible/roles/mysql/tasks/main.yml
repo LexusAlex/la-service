@@ -1,0 +1,23 @@
+---
+- name: Install mysql
+  block:
+    - name: added apt key
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 467B942D3A79BD29
+      debugger: on_failed
+      tags: added-mysql-key
+    - name: add repo mysql
+      apt_repository:
+        repo: deb [ arch=amd64 ] http://repo.mysql.com/apt/ubuntu/ focal mysql-8.0
+        update_cache: yes
+      debugger: on_failed
+      tags: add-repo-mysql
+    - name: install mysql server
+      apt:
+        name: mysql-server
+        update_cache: yes
+        state: latest
+      debugger: on_failed
+      tags: mysql-install
+  tags: mysql

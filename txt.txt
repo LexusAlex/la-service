@@ -71,17 +71,17 @@ https://packagist.org/packages/slim/slim
 
 Версии ПО
 
-php https://github.com/php/php-src/tags
-composer https://github.com/composer/composer/tags
-nginx https://github.com/nginx/nginx/tags
-docker https://github.com/docker/cli/tags
-docker-compose https://github.com/docker/compose/tags
-mysql https://github.com/mysql/mysql-server/tags
-ansible https://github.com/ansible/ansible/tags
+php https://github.com/php/php-src/tags 8.1.11
+composer https://github.com/composer/composer/tags 2.4.2
+nginx https://github.com/nginx/nginx/tags 1.23.1
+docker https://github.com/docker/cli/tags 20.10.18
+docker-compose https://github.com/docker/compose/tags 2.11.2
+mysql https://github.com/mysql/mysql-server/tags 8.0.30
+ansible https://github.com/ansible/ansible/tags 2.13.4
 
 Версии библиотек
 
-php -v && nginx -v && composer -V
+php -v && nginx -v && composer -V && mysql -V
 
 
 Docker
@@ -436,3 +436,8 @@ https://habr.com/ru/company/domclick/blog/510812/
 
 
 Установить реакт с нуля
+
+
+Mysql
+
+mysql -u -p la-service

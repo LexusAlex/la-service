@@ -20,5 +20,11 @@
       tags: nginx
     - role: nginx-host-backend
       tags: nginx-host-backend
+    - role: mysql
+      tags: mysql
+    - role: mysql-settings
+      tags: mysql-settings
+    - role: mysql-add-data
+      tags: mysql-add-data
     - role: deploy
       tags: deploy

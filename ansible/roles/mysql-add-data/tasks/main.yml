@@ -1,0 +1,25 @@
+---
+- name: added data for mysql
+  block:
+    - name: add user for mysql
+      mysql_user:
+        name: '{{ mysql_application_user }}'
+        password: '{{ mysql_application_password }}'
+        host: 'localhost'
+        priv:
+          '{{ mysql_application_db }}.*:ALL'
+          #'*.*:USAGE'
+          #'*.*:ALL,GRANT'
+        state: present
+      debugger: on_failed
+      tags: add-application-mysql-user
+    - name: add db for mysql
+      mysql_db:
+        name: '{{ mysql_application_db }}'
+        state: present
+        collation: 'utf8_general_ci'
+        encoding: 'utf8'
+      no_log: true
+      debugger: on_failed
+      tags: add-db-mysql
+  tags: mysql-add-data

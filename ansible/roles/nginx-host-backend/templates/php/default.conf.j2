@@ -34,6 +34,11 @@ server {
       fastcgi_param PATH_INFO $fastcgi_path_info;
       fastcgi_param {{ APPLICATION_ENVIRONMENT }}
       fastcgi_param {{ APPLICATION_DEBUG }}
+      fastcgi_param {{ MYSQL_HOST }}
+      fastcgi_param {{ MYSQL_USER }}
+      fastcgi_param {{ MYSQL_PASSWORD }}
+      fastcgi_param {{ MYSQL_DATABASE }}
+      fastcgi_param {{ MYSQL_CHARSET }}
     }
 
     location ~* \.(jpg|jpeg|gif|png|css|js|ico|webp|tiff|ttf|svg)$ {

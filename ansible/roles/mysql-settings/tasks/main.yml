@@ -1,0 +1,40 @@
+---
+- name: Automate settings mysql
+  no_log: true
+  block:
+    - name: install mysql-deps
+      apt:
+        name: python3-pymysql
+        state: latest
+      debugger: on_failed
+      tags: mysql-install-deps
+    - name: set root password
+      mysql_user:
+        name: root
+        password: '{{ mysql_root_password }}'
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+      debugger: on_failed
+      tags: mysql-set-password-root
+    - name: add .my.cnf file
+      blockinfile:
+        path: ~/.my.cnf
+        create: yes
+        mode: 0600
+        block: |
+          [client]
+          user=root
+          password={{ mysql_root_password }}
+      debugger: on_failed
+      tags: mysql-add-mycnf
+    - name: remove test database
+      no_log: true
+      mysql_db:
+        name: test
+        state: absent
+      debugger: on_failed
+      tags: mysql-remove-test-db
+    - name: reload mysql
+      service:
+        name: mysql
+        state: restarted
+  tags: mysql-settings
