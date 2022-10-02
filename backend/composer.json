@@ -22,10 +22,12 @@
         }
     ],
     "require": {
+        "doctrine/orm": "^2.13",
         "laminas/laminas-config-aggregator": "^1.8",
         "monolog/monolog": "^3.2",
         "slim/psr7": "^1.5",
         "slim/slim": "^4.10",
+        "symfony/cache": "^6.1",
         "yiisoft/di": "^1.1"
     },
     "require-dev": {

@@ -403,6 +403,7 @@ $application->run();
 
 Проверяем почему не можем обновиться до следующей версии пакета
 docker compose run --rm backend-php-cli composer update phpunit/phpunit:9.5.25
+docker compose run --rm backend-php-cli composer update doctrine/collections:2.0.1
 
 Problem 1
     - Root composer.json requires phpunit/phpunit ^9.5 -> satisfiable by phpunit/phpunit[9.5.25].
@@ -441,3 +442,27 @@ https://habr.com/ru/company/domclick/blog/510812/
 Mysql
 
 mysql -u -p la-service
+
+Doctrine
+
+docker compose run --rm backend-php-cli composer require doctrine/orm
+https://github.com/doctrine/collections/releases - обновить до 2 версии
+
+Проверка работы
+$d = $container->get(Connection::class);
+
+echo '<pre>';
+print_r($d->createQueryBuilder()->select('VERSION()')->executeQuery()->fetchAssociative());
+exit();
+
+-----
+Установка cache
+docker compose run --rm backend-php-cli composer require symfony/cache
+
+https://github.com/marketplace/actions/actions-setup-mysql?ysclid=l8puh8j967566477577
+
+Защита сервера
+https://itdraft.ru/2019/08/23/zashhita-nginx-pri-pomoshhi-limit-req-module-i-fail2ban-na-centos-7
+https://habr.com/ru/company/southbridge/blog/329876
+http://nginx.org/ru/docs/http/ngx_http_limit_req_module.html
+https://habr.com/ru/post/236859/?ysclid=l8qg2wxsy9282530163
