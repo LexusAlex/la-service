@@ -449,6 +449,8 @@ docker compose run --rm backend-php-cli composer require doctrine/orm
 https://github.com/doctrine/collections/releases - обновить до 2 версии
 
 Проверка работы
+use Doctrine\DBAL\Connection;
+
 $d = $container->get(Connection::class);
 
 echo '<pre>';
@@ -459,7 +461,9 @@ exit();
 Установка cache
 docker compose run --rm backend-php-cli composer require symfony/cache
 
-https://github.com/marketplace/actions/actions-setup-mysql?ysclid=l8puh8j967566477577
+https://github.com/marketplace/actions/actions-setup-mysql
+https://andela.com/insights/automated-tests-in-php-lumen-mysql-how-to-configure-github-actions/
+https://github.com/eonx-com/actions-setup-php/blob/master/examples/symfony-mysql.yml
 
 Защита сервера
 https://itdraft.ru/2019/08/23/zashhita-nginx-pri-pomoshhi-limit-req-module-i-fail2ban-na-centos-7

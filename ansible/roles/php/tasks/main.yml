@@ -27,6 +27,7 @@
            - "php{{ php_version }}-fpm"
            - "php{{ php_version }}-zip"
            - "php{{ php_version }}-mbstring"
+           - "php{{ php_version }}-mysql"
       debugger: on_failed
       tags: php-install-version
     - name: start php-fpm
