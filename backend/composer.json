@@ -28,6 +28,7 @@
         "slim/psr7": "^1.5",
         "slim/slim": "^4.10",
         "symfony/cache": "^6.1",
+        "symfony/console": "^6.1",
         "yiisoft/di": "^1.1"
     },
     "require-dev": {
@@ -43,6 +44,7 @@
         "phpunit": "phpunit --colors=always --configuration=etc/phpunit.xml",
         "phplint": "phplint --configuration=etc/.phplint.yml -w",
         "php-cs-fixer": "php-cs-fixer --config=etc/.php-cs-fixer.php --allow-risky=yes",
-        "psalm": "psalm --config=etc/psalm.xml"
+        "psalm": "psalm --config=etc/psalm.xml",
+        "cli": "php bin/application.php --ansi"
     }
 }
