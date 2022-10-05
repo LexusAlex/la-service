@@ -177,6 +177,11 @@ Component/ Вспомогательные компоненты
   /Slim Конфигурация фреймворка slim
     /Response Ответы экшена, завязан на Slim\Psr7
 Application/ Компоненты приложения
+  Authentication/ Компонент Аутентификации
+    Command / Методы которые что-то модифицируют в, то есть действия
+      JoinByEmail / Регистрация по Email
+        Request/ Запрос на регистрацию
+
 
 
 Для контроля структуры можно установить https://qossmic.github.io/deptrac/#getting-started
