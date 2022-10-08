@@ -139,6 +139,8 @@ webmozart/path-util is abandoned пакет будет удален https://gith
 
 docker compose run --rm backend-php-cli composer require laminas/laminas-config-aggregator
 docker compose run --rm backend-php-cli composer require symfony/console
+docker compose run --rm backend-php-cli composer require ramsey/uuid
+docker compose run --rm backend-php-cli composer require webmozart/assert
 docker compose run --rm backend-php-cli composer update roave/security-advisories
 
 перевод
@@ -181,8 +183,14 @@ Application/ Компоненты приложения
     Command / Методы которые что-то модифицируют в, то есть действия
       JoinByEmail / Регистрация по Email
         Request/ Запрос на регистрацию
+    Entity / Сущности
+      User /Сущность пользователь
+        Types / Типы полей сущности
 
 
+
+Процесс работы приложения
+Вызов action
 
 Для контроля структуры можно установить https://qossmic.github.io/deptrac/#getting-started
 
