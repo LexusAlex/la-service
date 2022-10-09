@@ -502,4 +502,11 @@ Content-Type: application/json
 1. Инициализация обработчика ошибок, где отлавливаются все ошибки
 2. Определение формата запроса, происходит его декодирование
 3. Триммим пробелы из инпутов
-4. Если выпало ислючение DomainExceptionHandler
+4. Валадация вводимых данных
+5. Если выпало ислючение DomainExceptionHandler
+
+-----
+
+Валидация кода
+docker compose run --rm backend-php-cli composer require symfony/validator
+docker compose run --rm backend-php-cli composer update doctrine/common

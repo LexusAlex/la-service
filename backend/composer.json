@@ -30,6 +30,7 @@
         "slim/slim": "^4.10",
         "symfony/cache": "^6.1",
         "symfony/console": "^6.1",
+        "symfony/validator": "^6.1",
         "webmozart/assert": "^1.11",
         "yiisoft/di": "^1.1"
     },
