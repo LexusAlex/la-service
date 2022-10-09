@@ -49,6 +49,24 @@ services:
       - mysql:/var/lib/mysql
     ports:
       - "3306:3306"
+  frontend-nginx:
+    build:
+      context: frontend/docker
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend-node
+  frontend-node:
+    build:
+      context: frontend/docker
+      dockerfile: node/Dockerfile
+    environment:
+      WDS_SOCKET_PORT: 0
+    volumes:
+      - ./frontend:/la-service
+    command: npm start
+    tty: true
   frontend-node-cli:
     build:
       context: frontend/docker

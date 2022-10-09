@@ -40,7 +40,7 @@ npm-install:
 npm-be-updated-all:
 	docker compose run --rm frontend-node-cli npm outdated --depth=9999
 
-# Libraries
+# Backend
 backend-php-lint:
 	docker compose run --rm backend-php-cli composer phplint
 backend-php-phpunit:
@@ -51,3 +51,7 @@ backend-php-cs-fixer:
 	docker compose run --rm backend-php-cli composer php-cs-fixer fix
 backend-php-psalm:
 	docker compose run --rm backend-php-cli composer psalm
+
+# Frontend
+frontend-build:
+	docker compose run --rm frontend-node-cli npm run build
