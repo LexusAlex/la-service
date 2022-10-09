@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LaService\ApiGateway\Http\Test;
+namespace LaService\ApiGateway\Http\Test\Action;
 
 /**
  * @internal

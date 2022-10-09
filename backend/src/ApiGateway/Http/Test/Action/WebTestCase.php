@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LaService\ApiGateway\Http\Test;
+namespace LaService\ApiGateway\Http\Test\Action;
 
 use JsonException;
 use PHPUnit\Framework\TestCase;
@@ -28,7 +28,7 @@ abstract class WebTestCase extends TestCase
 
     protected function app(): App
     {
-        return (require __DIR__ . '/../../../Component/Configuration/application.php')($this->container());
+        return (require __DIR__ . '/../../../../Component/Configuration/application.php')($this->container());
     }
 
     private static function request(string $method, string $path): ServerRequestInterface
@@ -38,7 +38,7 @@ abstract class WebTestCase extends TestCase
 
     private function container(): ContainerInterface
     {
-        $dependencies = (require __DIR__ . '/../../../Component/Configuration/dependencies.php');
-        return (require __DIR__ . '/../../../Component/Configuration/container.php')($dependencies);
+        $dependencies = (require __DIR__ . '/../../../../Component/Configuration/dependencies.php');
+        return (require __DIR__ . '/../../../../Component/Configuration/container.php')($dependencies);
     }
 }

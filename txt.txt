@@ -484,3 +484,22 @@ https://itdraft.ru/2019/08/23/zashhita-nginx-pri-pomoshhi-limit-req-module-i-fai
 https://habr.com/ru/company/southbridge/blog/329876
 http://nginx.org/ru/docs/http/ngx_http_limit_req_module.html
 https://habr.com/ru/post/236859/?ysclid=l8qg2wxsy9282530163
+
+
+-------
+Middleware
+
+Тест http запросов test.http
+### Send POST request with json body
+POST http://127.0.0.1:8008/v1/authentication/join
+Content-Type: application/json
+
+{
+  "email": "                             dfgdf dfgdfg dfg",
+  "password": "content  "
+}
+Перед выполнением запроса у нас просиходит
+1. Инициализация обработчика ошибок, где отлавливаются все ошибки
+2. Определение формата запроса, происходит его декодирование
+3. Триммим пробелы из инпутов
+4. Если выпало ислючение DomainExceptionHandler
