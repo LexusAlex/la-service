@@ -418,6 +418,7 @@ $application->run();
 Проверяем почему не можем обновиться до следующей версии пакета
 docker compose run --rm backend-php-cli composer update phpunit/phpunit:9.5.25
 docker compose run --rm backend-php-cli composer update doctrine/collections:2.0.1
+docker compose run --rm backend-php-cli composer update laminas/laminas-stdlib
 
 Problem 1
     - Root composer.json requires phpunit/phpunit ^9.5 -> satisfiable by phpunit/phpunit[9.5.25].
@@ -506,6 +507,9 @@ Content-Type: application/json
 5. Если выпало ислючение DomainExceptionHandler
 
 -----
+
+Формат вывода json
+$middleware->getDefaultErrorHandler()->forceContentType('application/json');
 
 Валидация кода
 docker compose run --rm backend-php-cli composer require symfony/validator
