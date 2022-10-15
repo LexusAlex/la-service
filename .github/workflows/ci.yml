@@ -36,6 +36,9 @@ jobs:
           extensions: mbstring, mysql, zip
       - name: Check PHP Version
         run: php -v
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
       - name: Cache dependencies
         uses: actions/cache@v3
