@@ -22,14 +22,18 @@
         }
     ],
     "require": {
+        "doctrine/annotations": "^1.13",
         "doctrine/orm": "^2.13",
         "laminas/laminas-config-aggregator": "^1.8",
         "monolog/monolog": "^3.2",
+        "phpdocumentor/reflection-docblock": "^5.3",
         "ramsey/uuid": "^4.5",
         "slim/psr7": "^1.5",
         "slim/slim": "^4.10",
         "symfony/cache": "^6.1",
         "symfony/console": "^6.1",
+        "symfony/property-info": "^6.1",
+        "symfony/serializer": "^6.1",
         "symfony/validator": "^6.1",
         "webmozart/assert": "^1.11",
         "yiisoft/di": "^1.1"

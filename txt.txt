@@ -514,3 +514,12 @@ $middleware->getDefaultErrorHandler()->forceContentType('application/json');
 Валидация кода
 docker compose run --rm backend-php-cli composer require symfony/validator
 docker compose run --rm backend-php-cli composer update doctrine/common
+docker compose run --rm backend-php-cli composer update doctrine/collections:2.0.1
+docker compose run --rm backend-php-cli composer update roave/security-advisories phpdocumentor/type-resolver
+
+Сериалайзер
+
+docker compose run --rm backend-php-cli composer require symfony/serializer
+docker compose run --rm backend-php-cli composer require symfony/property-info
+docker compose run --rm backend-php-cli composer require phpdocumentor/reflection-docblock
+docker compose run --rm backend-php-cli composer require doctrine/annotations

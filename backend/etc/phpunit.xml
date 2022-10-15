@@ -15,6 +15,7 @@
             <directory>../src/ApiGateway/Http/Test</directory>
             <directory>../src/Component/Configuration/Test</directory>
             <directory>../src/Component/Slim/Test</directory>
+            <directory>../src/Component/Symfony/Test</directory>
             <directory>../src/Application/Authentication/Test</directory>
         </testsuite>
     </testsuites>
