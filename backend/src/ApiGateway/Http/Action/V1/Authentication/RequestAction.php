@@ -19,7 +19,7 @@ final class RequestAction implements RequestHandlerInterface
     public function __construct(
         private readonly Denormalizer $denormalizer,
         private readonly Validator $validator,
-        private readonly Handler $handler
+        private readonly Handler $handler,
     ) {
     }
 

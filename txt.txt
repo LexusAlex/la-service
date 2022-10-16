@@ -472,6 +472,9 @@ echo '<pre>';
 print_r($d->createQueryBuilder()->select('VERSION()')->executeQuery()->fetchAssociative());
 exit();
 
+
+Все должно быть в контейнере, иначе ошибка доступа к обьекту
+
 -----
 Установка cache
 docker compose run --rm backend-php-cli composer require symfony/cache
@@ -496,8 +499,8 @@ POST http://127.0.0.1:8008/v1/authentication/join
 Content-Type: application/json
 
 {
-  "email": "                             dfgdf dfgdfg dfg",
-  "password": "content  "
+  "email": "   a@b.ru",
+  "password": "content 123 "
 }
 Перед выполнением запроса у нас просиходит
 1. Инициализация обработчика ошибок, где отлавливаются все ошибки
@@ -523,3 +526,5 @@ docker compose run --rm backend-php-cli composer require symfony/serializer
 docker compose run --rm backend-php-cli composer require symfony/property-info
 docker compose run --rm backend-php-cli composer require phpdocumentor/reflection-docblock
 docker compose run --rm backend-php-cli composer require doctrine/annotations
+
+
