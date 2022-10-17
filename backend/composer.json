@@ -23,6 +23,7 @@
     ],
     "require": {
         "doctrine/annotations": "^1.13",
+        "doctrine/migrations": "^3.5",
         "doctrine/orm": "^2.13",
         "laminas/laminas-config-aggregator": "^1.8",
         "monolog/monolog": "^3.2",

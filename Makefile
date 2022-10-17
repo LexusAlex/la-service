@@ -8,8 +8,8 @@ init: docker-build up backend-init
 up: docker-up
 down: docker-down
 restart: down up
-check: backend-php-lint backend-php-cs-fixer backend-php-phpunit backend-php-psalm
-backend-init: composer-install
+check: backend-php-lint backend-php-cs-fixer backend-php-phpunit backend-php-psalm backend-validate-schema
+backend-init: composer-install backend-wait-db backend-migrations
 # frontend-init:
 
 # Ansible
@@ -53,7 +53,10 @@ backend-php-psalm:
 	docker compose run --rm backend-php-cli composer psalm
 backend-validate-schema:
 	docker compose run --rm backend-php-cli composer cli orm:validate-schema
-
+backend-migrations:
+	docker compose run --rm backend-php-cli composer cli migrations:migrate -- --no-interaction
+backend-wait-db:
+	docker compose run --rm backend-php-cli wait-for-it backend-mysql:3306 -t 30
 # Frontend
 frontend-build:
 	docker compose run --rm frontend-node-cli npm run build

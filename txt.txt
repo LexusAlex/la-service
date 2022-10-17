@@ -534,3 +534,19 @@ docker compose run --rm backend-php-cli composer require phpdocumentor/reflectio
 docker compose run --rm backend-php-cli composer require doctrine/annotations
 
 
+docker compose run --rm backend-php-cli composer cli orm:schema-tool:drop -- force - удаление таблиц
+
+doctrine migrations
+
+docker compose run --rm backend-php-cli composer require doctrine/migrations
+
+docker compose run --rm backend-php-cli composer cli migrations:status - статус миграций
+docker compose run --rm backend-php-cli composer cli migrations:migrate -- --dry-run - что будет происходить при накате миграций
+docker compose run --rm backend-php-cli composer cli migrations:current - текущая примененная миграция
+docker compose run --rm backend-php-cli composer cli migrations:diff - сгенерировать новый класс миграций
+migrations:execute --up 'LaService\\Component\\Doctrine\\Data\\Migration\\Version20221017103942' - применить
+migrations:execute --down 'LaService\\Component\\Doctrine\\Data\\Migration\\Version20221017103942' - откатить
+docker compose run --rm backend-php-cli composer cli migrations:list - список миграций
+docker compose run --rm backend-php-cli composer cli migrations:up-to-date
+docker compose run --rm backend-php-cli composer cli migrations:migrate prev откратить последнуюю миграцию
+docker compose run --rm backend-php-cli composer cli migrations:migrate next накатить последнуюю миграцию
