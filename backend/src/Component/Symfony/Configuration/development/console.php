@@ -19,10 +19,19 @@ use Doctrine\ORM\Tools\Console\Command\SchemaTool\DropCommand;
 use Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand;
 use Doctrine\ORM\Tools\Console\EntityManagerProvider;
 use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
+use LaService\Component\Symfony\Console\Command\FixturesLoadCommand;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application;
 
 return [
+    FixturesLoadCommand::class => static function (ContainerInterface $container) {
+        return new FixturesLoadCommand(
+            $container->get(EntityManagerInterface::class),
+            [
+                __DIR__ . '/../../../../Application/Authentication/Fixture',
+            ],
+        );
+    },
     EntityManagerProvider::class => static fn (ContainerInterface $container): EntityManagerProvider => new SingleManagerProvider($container->get(EntityManagerInterface::class)),
     Application::class => static function (ContainerInterface $container): Application {
         $cli = new Application('Console');
@@ -30,6 +39,7 @@ return [
         $cli->add($container->get(InfoCommand::class));
         $cli->add($container->get(MappingDescribeCommand::class));
         $cli->add($container->get(DropCommand::class));
+        $cli->add($container->get(FixturesLoadCommand::class));
 
         $dependencyFactory = $container->get(DependencyFactory::class);
 

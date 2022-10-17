@@ -552,3 +552,7 @@ docker compose run --rm backend-php-cli composer cli migrations:migrate prev о�
 docker compose run --rm backend-php-cli composer cli migrations:migrate next накатить последнуюю миграцию
 
 sudo su www-data -s /bin/bash
+
+Фикстуры
+
+docker compose run --rm backend-php-cli composer require --dev doctrine/data-fixtures
