@@ -51,6 +51,8 @@ backend-php-cs-fixer:
 	docker compose run --rm backend-php-cli composer php-cs-fixer fix
 backend-php-psalm:
 	docker compose run --rm backend-php-cli composer psalm
+backend-validate-schema:
+	docker compose run --rm backend-php-cli composer cli orm:validate-schema
 
 # Frontend
 frontend-build:

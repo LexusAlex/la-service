@@ -194,6 +194,8 @@ Application/ Компоненты приложения
 
 Для контроля структуры можно установить https://qossmic.github.io/deptrac/#getting-started
 
+Автоматизировать создание этих файлов при развертывании приложения
+
 ansible vars
 
 role
@@ -465,6 +467,10 @@ https://github.com/doctrine/collections/releases - обновить до 2 ве�
 
 Проверка работы
 use Doctrine\DBAL\Connection;
+
+
+Провекра
+docker compose run --rm backend-php-cli composer cli orm:mapping:describe User
 
 $d = $container->get(Connection::class);
 
