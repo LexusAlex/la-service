@@ -75,4 +75,4 @@ jobs:
         script: |
           git -C ${{ secrets.REMOTE_PATH }} pull
           composer install --working-dir=${{ secrets.REMOTE_PATH }}/backend/ --no-dev --optimize-autoloader --classmap-authoritative
-          MYSQL_HOST={{ secrets.MYSQL_HOST }} MYSQL_USER={{ secrets.MYSQL_USER }} MYSQL_PASSWORD={{ secrets.MYSQL_PASSWORD }} MYSQL_DATABASE={{ secrets.MYSQL_DATABASE }} MYSQL_CHARSET={{ secrets.MYSQL_CHARSET }} composer --working-dir=${{ secrets.REMOTE_PATH }}/backend/ cli migrations:migrate -- --no-interaction
+          MYSQL_HOST=${{ secrets.MYSQL_HOST }} MYSQL_USER=${{ secrets.MYSQL_USER }} MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }} MYSQL_CHARSET=${{ secrets.MYSQL_CHARSET }} composer --working-dir=${{ secrets.REMOTE_PATH }}/backend/ cli migrations:migrate -- --no-interaction
