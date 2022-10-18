@@ -32,7 +32,7 @@ final class RequestAction implements RequestHandlerInterface
 
         $this->validator->validate($command);
 
-        $this->handler->handle();
+        $this->handler->handle($command);
 
         return new EmptyResponse(201);
     }

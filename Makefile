@@ -8,7 +8,8 @@ init: docker-build up backend-init
 up: docker-up
 down: docker-down
 restart: down up
-check: backend-php-lint backend-php-cs-fixer backend-php-phpunit backend-php-psalm backend-validate-schema
+check-all: check backend-validate-schema
+check: backend-php-lint backend-php-cs-fixer backend-php-phpunit backend-php-psalm
 backend-init: composer-install backend-wait-db backend-migrations backend-load-fixtures
 # frontend-init:
 
@@ -53,8 +54,10 @@ backend-php-psalm:
 	docker compose run --rm backend-php-cli composer psalm
 backend-validate-schema:
 	docker compose run --rm backend-php-cli composer cli orm:validate-schema
-backend-migrations:
+backend-run-migrations:
 	docker compose run --rm backend-php-cli composer cli migrations:migrate -- --no-interaction
+backend-create-migrations:
+	docker compose run --rm backend-php-cli composer cli migrations:diff
 backend-wait-db:
 	docker compose run --rm backend-php-cli wait-for-it backend-mysql:3306 -t 30
 backend-load-fixtures:

@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
 use Doctrine\ORM\ORMSetup;
+use LaService\Application\Authentication\Entity\User\Types\EmailType;
 use LaService\Application\Authentication\Entity\User\Types\IdType;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
@@ -24,13 +25,14 @@ return [
             ],
             (bool)environment('APPLICATION_ENVIRONMENT', 'production'),
             __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/proxy',
-            (__DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/cache') ? new FilesystemAdapter('', 0, __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . '/doctrine/cache') : new ArrayAdapter()
+            !environment('APPLICATION_DEBUG') ? (__DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/cache') ? new FilesystemAdapter('', 0, __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . '/doctrine/cache') : new ArrayAdapter() : null
         );
 
         $config->setNamingStrategy(new UnderscoreNamingStrategy());
 
         $types = [
             IdType::NAME => IdType::class,
+            EmailType::NAME => EmailType::class,
         ];
 
         foreach ($types as $name => $class) {

@@ -188,6 +188,19 @@ Application/ Компоненты приложения
         Types / Типы полей сущности
 
 
+-----
+Разбиваем приложение на use cases
+
+JoinByEmail - Регистрация пользователя по Email
+
+1. Поступает запрос методом post
+2. Заполняем команду пришедшими данными из post запроса, проверяем на соответствие атрибутов и формируем из json в объект
+3. Валидация полей команды
+4. Запуск обработчика handler
+5. Заполнение данных из команды
+6. Проверка на доменные исключения
+7. Вызов нужного метода сущности и заполнение полей
+8. Добавление в бд
 
 Процесс работы приложения
 Вызов action
@@ -441,6 +454,9 @@ deptrac
 frontend
 docker compose run --rm -u 1000:1000 frontend-node-cli npx create-react-app my-app
 
+Правильная html разметка
+https://habr.com/ru/company/htmlacademy/blog/563894/
+
 
 npm
 npm i package-name --save-dev установка пакета
@@ -532,6 +548,7 @@ docker compose run --rm backend-php-cli composer require symfony/serializer
 docker compose run --rm backend-php-cli composer require symfony/property-info
 docker compose run --rm backend-php-cli composer require phpdocumentor/reflection-docblock
 docker compose run --rm backend-php-cli composer require doctrine/annotations
+docker compose run --rm backend-php-cli composer update friendsofphp/proxy-manager-lts
 
 
 docker compose run --rm backend-php-cli composer cli orm:schema-tool:drop -- force - удаление таблиц
@@ -556,3 +573,10 @@ sudo su www-data -s /bin/bash
 Фикстуры
 
 docker compose run --rm backend-php-cli composer require --dev doctrine/data-fixtures
+
+
+docker compose run --rm backend-php-cli composer phpunit -- --testdox
+https://www.php.net/manual/ru/language.operators.comparison.php
+
+
+SET GLOBAL sql_mode = 'ONLY_FULL_GROUP_BY,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
