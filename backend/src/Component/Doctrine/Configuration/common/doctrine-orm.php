@@ -25,7 +25,7 @@ return [
             ],
             (bool)environment('APPLICATION_ENVIRONMENT', 'production'),
             __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/proxy',
-            !environment('APPLICATION_DEBUG') ? (__DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/cache') ? new FilesystemAdapter('', 0, __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . '/doctrine/cache') : new ArrayAdapter() : null
+            (__DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/cache') ? new FilesystemAdapter('', 0, __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . '/doctrine/cache') : new ArrayAdapter()
         );
 
         $config->setNamingStrategy(new UnderscoreNamingStrategy());

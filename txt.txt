@@ -570,6 +570,8 @@ docker compose run --rm backend-php-cli composer cli migrations:migrate next н�
 
 sudo su www-data -s /bin/bash
 
+!Решить вопрос с кешированием
+
 Фикстуры
 
 docker compose run --rm backend-php-cli composer require --dev doctrine/data-fixtures
@@ -580,3 +582,5 @@ https://www.php.net/manual/ru/language.operators.comparison.php
 
 
 SET GLOBAL sql_mode = 'ONLY_FULL_GROUP_BY,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+
