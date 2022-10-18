@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use LaService\Application\Authentication\Entity\User\Types\Email;
 use LaService\Application\Authentication\Entity\User\Types\Id;
+use LaService\Application\Authentication\Entity\User\Types\Token;
 
 #[ORM\Entity]
 #[ORM\HasLifecycleCallbacks]
@@ -26,6 +27,12 @@ final class User
 
     #[ORM\Column(type: 'authentication_user_email', unique: true)]
     private Email $email;
+
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $passwordHash = null;
+
+    #[ORM\Embedded(class: Token::class)]
+    private ?Token $joinConfirmToken = null;
 
     public function __construct(Id $id, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt, Email $email)
     {
@@ -55,12 +62,35 @@ final class User
         return $this->email;
     }
 
+    public function getPasswordHash(): ?string
+    {
+        return $this->passwordHash;
+    }
+
+    public function getJoinConfirmToken(): ?Token
+    {
+        return $this->joinConfirmToken;
+    }
+
     public static function requestJoinByEmail(
         Id $id,
         DateTimeImmutable $createdAt,
         DateTimeImmutable $updatedAt,
-        Email $email
+        Email $email,
+        string $passwordHash,
+        Token $token
     ): self {
-        return new self($id, $createdAt, $updatedAt, $email);
+        $user = new self($id, $createdAt, $updatedAt, $email);
+        $user->passwordHash = $passwordHash;
+        $user->joinConfirmToken = $token;
+        return $user;
+    }
+
+    #[ORM\PostLoad]
+    public function checkEmbeds(): void
+    {
+        if ($this->joinConfirmToken && $this->joinConfirmToken->isEmpty()) {
+            $this->joinConfirmToken = null;
+        }
     }
 }

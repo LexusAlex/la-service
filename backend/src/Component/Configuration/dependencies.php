@@ -9,7 +9,7 @@ use function LaService\Component\Configuration\environment;
 
 $modules = [
     'Component' => ['Configuration', 'Slim', 'Monolog', 'Doctrine', 'Symfony'],
-    'Application' => [],
+    'Application' => ['Authentication'],
 ];
 
 $configuration = [];
