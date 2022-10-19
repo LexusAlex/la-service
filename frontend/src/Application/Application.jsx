@@ -1,8 +1,8 @@
-import './Application.css';
+import styles from './Application.module.scss';
 
 function Application() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       Application
     </div>
   );

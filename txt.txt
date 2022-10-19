@@ -434,6 +434,7 @@ $application->run();
 docker compose run --rm backend-php-cli composer update phpunit/phpunit:9.5.25
 docker compose run --rm backend-php-cli composer update doctrine/collections:2.0.1
 docker compose run --rm backend-php-cli composer update laminas/laminas-stdlib
+docker compose run --rm backend-php-cli composer update lctrs/psalm-psr-container-plugin
 
 Problem 1
     - Root composer.json requires phpunit/phpunit ^9.5 -> satisfiable by phpunit/phpunit[9.5.25].
@@ -456,6 +457,11 @@ docker compose run --rm -u 1000:1000 frontend-node-cli npx create-react-app my-a
 
 Правильная html разметка
 https://habr.com/ru/company/htmlacademy/blog/563894/
+https://habr.com/ru/company/macloud/blog/555082
+
+https://doka.guide/css/grid-guide/
+К просмотру
+https://www.youtube.com/watch?v=oYnyQ47BUSo
 
 
 npm
@@ -464,6 +470,7 @@ npm un package-name удаление пакета
 npm auditgit fix --force
 docker compose run --rm frontend-node-cli npm ls показать пакеты в виде дерева
 docker compose run --rm frontend-node-cli npm outdated --depth=0
+docker compose run --rm frontend-node-cli npm i node-sass --save-dev
 
 Хорошая статья
 https://habr.com/ru/company/domclick/blog/510812/
@@ -580,6 +587,8 @@ docker compose run --rm backend-php-cli composer require --dev doctrine/data-fix
 docker compose run --rm backend-php-cli composer phpunit -- --testdox
 https://www.php.net/manual/ru/language.operators.comparison.php
 
+
+Инструменты автоматизации https://www.youtube.com/watch?v=QJ3pRd4Ua08
 
 SET GLOBAL sql_mode = 'ONLY_FULL_GROUP_BY,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
