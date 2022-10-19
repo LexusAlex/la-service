@@ -19,4 +19,12 @@
         chdir: "{{ path_project }}/backend"
       debugger: on_failed
       tags: composer-install
+    - name : run migrations
+      become: true
+      become_user: "{{ user }}"
+      shell: 'MYSQL_HOST={{ mysql_host }} MYSQL_USER={{ mysql_application_user }} MYSQL_PASSWORD={{ mysql_application_password }} MYSQL_DATABASE={{ mysql_application_db }} MYSQL_CHARSET={{ mysql_charset }} composer --working-dir={{ path_project }}/backend/ cli migrations:migrate -- --no-interaction'
+      args:
+        chdir: "{{ path_project }}/backend"
+      debugger: on_failed
+      tags: run-migrations
   tags: deploy
