@@ -1,0 +1,26 @@
+---
+- name: Install node js 18 version
+  block:
+    - name: load nodejs
+      shell: 'curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -'
+      debugger: on_failed
+      tags: load-nodejs
+    - name: install nodejs
+      apt:
+        name: nodejs
+        update_cache: yes
+      tags: install-nodejs
+      debugger: on_failed
+    - name: Install latest version npm
+      shell: npm install -g npm@latest
+      debugger: on_failed
+      tags: install-latest-version-npm
+    - name: install soft for npm
+      apt:
+        name:
+          - build-essential
+        state: latest
+        update_cache: yes
+      debugger: on_failed
+      tags: node-install-software
+  tags: nodejs

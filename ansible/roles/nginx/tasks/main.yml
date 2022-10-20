@@ -64,6 +64,14 @@
         state: reloaded
       debugger: on_failed
       tags: nginx-open-port
+    - name: open port 80
+      ufw:
+        rule: allow
+        port: 80
+        proto: tcp
+        state: reloaded
+      debugger: on_failed
+      tags: nginx-open-port-80
     - name: change user nginx
       shell: "sed -i 's/user  nginx;/user  www-data;/g' /etc/nginx/nginx.conf && service nginx reload"
       debugger: on_failed

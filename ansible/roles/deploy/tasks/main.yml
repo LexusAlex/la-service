@@ -27,4 +27,20 @@
         chdir: "{{ path_project }}/backend"
       debugger: on_failed
       tags: run-migrations
+    - name: npm install
+      become: true
+      become_user: "{{ user }}"
+      args:
+        chdir: "{{ path_project }}/frontend"
+      shell: npm install --prefer-offline --no-audit --progress=false --production
+      debugger: on_failed
+      tags: npm-install
+    - name: build react app
+      become: true
+      become_user: "{{ user }}"
+      args:
+        chdir: "{{ path_project }}/frontend"
+      shell: npm run build
+      debugger: on_failed
+      tags: npm-run build
   tags: deploy

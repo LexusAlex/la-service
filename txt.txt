@@ -593,3 +593,14 @@ https://www.php.net/manual/ru/language.operators.comparison.php
 SET GLOBAL sql_mode = 'ONLY_FULL_GROUP_BY,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 
+nodejs 18 версия
+
+npm -v 8.19.2
+node -v v18.11.0
+
+
+npm install --prefer-offline --no-audit --progress=false --production
+
+https://hub.docker.com/_/node/
+
+

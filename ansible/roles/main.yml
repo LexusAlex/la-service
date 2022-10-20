@@ -26,5 +26,7 @@
       tags: mysql-settings
     - role: mysql-add-data
       tags: mysql-add-data
+    - role: nodejs
+      tags: nodejs
     - role: deploy
       tags: deploy
