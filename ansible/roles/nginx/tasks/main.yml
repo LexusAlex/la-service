@@ -59,17 +59,25 @@
     - name: open port
       ufw:
         rule: allow
+        src: '{{ item }}'
         port: 8008
         proto: tcp
         state: reloaded
+      loop:
+        - 194.8.47.127
+        - 192.168.88.0/24
       debugger: on_failed
       tags: nginx-open-port
     - name: open port 80
       ufw:
         rule: allow
+        src: '{{ item }}'
         port: 80
         proto: tcp
         state: reloaded
+      loop:
+        - 194.8.47.127
+        - 192.168.88.0/24
       debugger: on_failed
       tags: nginx-open-port-80
     - name: change user nginx
