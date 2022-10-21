@@ -603,4 +603,11 @@ npm install --prefer-offline --no-audit --progress=false --production
 
 https://hub.docker.com/_/node/
 
+Отправка почты
+https://github.com/symfony/mailer?ysclid=l9ibl160xr201977260
+
+docker compose run --rm backend-php-cli composer require symfony/mailer
+
+Понять как писать тесты для майлера
+
 

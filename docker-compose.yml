@@ -22,6 +22,14 @@ services:
       MYSQL_PASSWORD: la-service
       MYSQL_DATABASE: la-service
       MYSQL_CHARSET: utf8
+      MAILER_HOST: backend-mailer
+      MAILER_PORT: 1025
+      MAILER_USERNAME: alex
+      MAILER_PASSWORD: 123
+      MAILER_ENCRYPTION: tcp
+      MAILER_FROM_EMAIL: mail@app.test
+      MAILER_FROM_NAME: test
+      FRONTEND_URL: http://127.0.0.1
     volumes:
       - ./backend:/la-service
   backend-php-cli:
@@ -36,6 +44,14 @@ services:
      MYSQL_PASSWORD: la-service
      MYSQL_DATABASE: la-service
      MYSQL_CHARSET: utf8
+     MAILER_HOST: backend-mailer
+     MAILER_PORT: 1025
+     MAILER_USERNAME: alex
+     MAILER_PASSWORD: 123
+     MAILER_ENCRYPTION: tcp
+     MAILER_FROM_EMAIL: mail@app.test
+     MAILER_FROM_NAME: test
+     FRONTEND_URL: http://127.0.0.1
     volumes:
       - ./backend:/la-service
   backend-mysql:
@@ -49,6 +65,11 @@ services:
       - mysql:/var/lib/mysql
     ports:
       - "3306:3306"
+  backend-mailer:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
   frontend-nginx:
     build:
       context: frontend/docker

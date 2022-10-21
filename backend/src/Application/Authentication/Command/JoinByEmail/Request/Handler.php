@@ -12,6 +12,7 @@ use LaService\Application\Authentication\Entity\User\Types\Email;
 use LaService\Application\Authentication\Entity\User\Types\Id;
 use LaService\Application\Authentication\Entity\User\User;
 use LaService\Application\Authentication\Entity\User\UserRepository;
+use LaService\Application\Authentication\Service\JoinConfirmationSender;
 use LaService\Application\Authentication\Service\PasswordHasher;
 use LaService\Application\Authentication\Service\Tokenizer;
 use LaService\Component\Doctrine\Helper\Save;
@@ -23,6 +24,7 @@ final class Handler
         private readonly Save $save,
         private readonly PasswordHasher $hasher,
         private readonly Tokenizer $tokenizer,
+        private readonly JoinConfirmationSender $sender
     ) {
     }
 
@@ -44,11 +46,13 @@ final class Handler
             new DateTimeImmutable(),
             $email,
             $this->hasher->hash($command->password),
-            $this->tokenizer->generate($created_at)
+            $token = $this->tokenizer->generate($created_at)
         );
 
         $this->users->add($user);
 
         $this->save->save();
+
+        $this->sender->send($email, $token);
     }
 }
