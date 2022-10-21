@@ -39,6 +39,14 @@ server {
       fastcgi_param {{ MYSQL_PASSWORD }}
       fastcgi_param {{ MYSQL_DATABASE }}
       fastcgi_param {{ MYSQL_CHARSET }}
+      fastcgi_param {{ MAILER_HOST }}
+      fastcgi_param {{ MAILER_PORT }}
+      fastcgi_param {{ MAILER_USERNAME }}
+      fastcgi_param {{ MAILER_PASSWORD }}
+      fastcgi_param {{ MAILER_ENCRYPTION }}
+      fastcgi_param {{ MAILER_FROM_EMAIL }}
+      fastcgi_param {{ MAILER_FROM_NAME }}
+      fastcgi_param {{ FRONTEND_URL }}
     }
 
     location ~* \.(jpg|jpeg|gif|png|css|js|ico|webp|tiff|ttf|svg)$ {

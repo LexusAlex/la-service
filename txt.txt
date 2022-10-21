@@ -592,6 +592,8 @@ https://www.php.net/manual/ru/language.operators.comparison.php
 
 SET GLOBAL sql_mode = 'ONLY_FULL_GROUP_BY,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
+use la-service;
+SELECT * FROM la_service_authentication_users
 
 nodejs 18 версия
 

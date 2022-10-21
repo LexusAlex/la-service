@@ -25,7 +25,7 @@ return [
         $transport = (new EsmtpTransport(
             environment('MAILER_HOST'),
             (int)environment('MAILER_PORT'),
-            false,
+            !environment('APPLICATION_DEBUG'),
             $dispatcher,
             $container->get(LoggerInterface::class)
         ))
