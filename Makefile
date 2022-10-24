@@ -12,6 +12,7 @@ check-all: check backend-validate-schema
 check: backend-php-lint backend-php-cs-fixer backend-php-phpunit backend-php-psalm
 backend-init: composer-install backend-wait-db backend-run-migrations backend-load-fixtures backend-permissions
 frontend-init: npm-install
+check-dependencies: composer-be-updated-all npm-be-updated-all
 
 # Ansible
 ping:
