@@ -4,14 +4,14 @@ UBUNTU_USER=root
 UBUNTU_HOST=la-service
 
 # Common development
-init: docker-build up backend-init
+init: docker-build up backend-init frontend-init
 up: docker-up
 down: docker-down
 restart: down up
 check-all: check backend-validate-schema
 check: backend-php-lint backend-php-cs-fixer backend-php-phpunit backend-php-psalm
-backend-init: composer-install backend-wait-db backend-migrations backend-load-fixtures
-# frontend-init:
+backend-init: composer-install backend-wait-db backend-run-migrations backend-load-fixtures backend-permissions
+frontend-init: npm-install
 
 # Ansible
 ping:
@@ -63,6 +63,8 @@ backend-wait-db:
 	docker compose run --rm backend-php-cli wait-for-it backend-mysql:3306 -t 30
 backend-load-fixtures:
 	docker compose run --rm backend-php-cli composer cli fixtures:load
+backend-permissions:
+	docker compose run --rm backend-php-cli chmod 777 var/cache var/log
 # Frontend
 frontend-build:
 	docker compose run --rm frontend-node-cli npm run build
