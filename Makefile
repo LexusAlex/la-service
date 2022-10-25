@@ -71,3 +71,5 @@ frontend-build:
 	docker compose run --rm frontend-node-cli npm run build
 frontend-start:
 	docker compose run --rm frontend-node-cli npm run start
+frontend-test:
+	docker compose run --rm frontend-node-cli npm run test
