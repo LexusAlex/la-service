@@ -1,10 +1,10 @@
 import styles from './Application.module.scss';
-import Welcome from "../Welcome/Welcome";
+import Home from "../Home/Home";
 
 function Application() {
   return (
     <div className={styles.container}>
-      <Welcome></Welcome>
+      <Home></Home>
     </div>
   );
 }

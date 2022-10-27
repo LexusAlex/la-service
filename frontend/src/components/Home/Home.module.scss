@@ -1,0 +1,14 @@
+.container {
+  max-width: 200px;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: center;
+  place-content: center;
+}
+
+.joinForm {
+  min-height: 400px;
+  background-color: lemonchiffon;
+}
