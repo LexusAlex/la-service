@@ -1,6 +1,25 @@
 @import-normalize;
 @import "assets/scss/variables";
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
 body {
-  margin: 0;
+  font-family: sans-serif;
 }
