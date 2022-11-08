@@ -11,9 +11,7 @@ return [
         $file = __DIR__ . '/../../../../../var/log/' . PHP_SAPI . '/application.log';
         $logger = new Logger('la-service');
 
-        if (!empty($file)) {
-            $logger->pushHandler(new RotatingFileHandler($file));
-        }
+        $logger->pushHandler(new RotatingFileHandler($file));
 
         return $logger;
     },

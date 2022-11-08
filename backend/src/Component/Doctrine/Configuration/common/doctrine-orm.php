@@ -12,7 +12,6 @@ use Doctrine\ORM\ORMSetup;
 use LaService\Application\Authentication\Entity\User\Types\EmailType;
 use LaService\Application\Authentication\Entity\User\Types\IdType;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 use function LaService\Component\Configuration\environment;
@@ -25,7 +24,7 @@ return [
             ],
             (bool)environment('APPLICATION_ENVIRONMENT', 'production'),
             __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/proxy',
-            (__DIR__ . '/../../../../../var/cache/' . PHP_SAPI . 'doctrine/cache') ? new FilesystemAdapter('', 0, __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . '/doctrine/cache') : new ArrayAdapter()
+            new FilesystemAdapter('', 0, __DIR__ . '/../../../../../var/cache/' . PHP_SAPI . '/doctrine/cache')
         );
 
         $config->setNamingStrategy(new UnderscoreNamingStrategy());
